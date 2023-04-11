@@ -1,9 +1,10 @@
 ### Hello everyone 👋
 
-👋 Hi, I’m chuks Ralph Ward
-👀 I’m interested to work as a freelance for hybrid positions
-🌱 I’m currently working as a Data Analyst
-💞️ I’m looking to collaborate on open source projects 
+- 👋 Hi, I’m Ralph Ward
+- 👀 I’m interested to work as a freelance for hybrid positions
+- 🌱 I’m currently working as a Data Analyst
+- 💞️ I’m looking to collaborate on open source projects 
+- 🙋‍♂️ Feel free to reach out through my e-mail or my LinkedIn
 
 
 <!-- HTML approach -->
