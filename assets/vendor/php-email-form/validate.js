@@ -64,13 +64,19 @@
     })
     .then(data => {
       thisForm.querySelector('.loading').classList.remove('d-block');
-      if (data.trim() == 'OK') {
+      
+      // Parse the server's response as JSON.
+      let jsonResponse = JSON.parse(data);
+      
+      // If the server's response is 'OK' or {"ok":true}, treat the form submission as successful.
+      if (data.trim() == 'OK' || jsonResponse.ok) {
         thisForm.querySelector('.sent-message').classList.add('d-block');
         thisForm.reset(); 
       } else {
         throw new Error(data ? data : 'Form submission failed and no error message returned from: ' + action); 
       }
     })
+    
     .catch((error) => {
       displayError(thisForm, error);
     });
