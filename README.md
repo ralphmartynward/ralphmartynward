@@ -1,7 +1,10 @@
 ### Hello everyone 👋
 
+![alt text](https://github.com/ralphmartynward/ralphmartynward/assets/img/cover.png)
+
+
 Hi! 😊 I'm a **Project Manager** with 7+ years experience in tech startups.
-Recently, I turned my career around to focus on Data Artificial Intelligence, taking a bootcamp where I learned Machine Learning (scikit-learn, tensorflow, pytorch, CNN, BERT among others). 
+Recently, I turned my career around to focus on Data & Artificial Intelligence, taking a bootcamp where I learned Machine Learning (scikit-learn, tensorflow, pytorch, CNN, BERT among others). 
 
 
 - 🔭 I’m currently working on personal projects and looking for a job as data scientist
