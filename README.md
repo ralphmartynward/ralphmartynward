@@ -1,9 +1,12 @@
 ### Hello everyone 👋
 
-- 👋 Hi, I’m Ralph Ward
-- 👀 I’m interested to work as a freelance for hybrid positions
-- 🌱 I’m currently working as a Data Analyst
-- 💞️ I’m looking to collaborate on open source projects 
+Hi! 😊 I'm a **Project Manager** with 7+ years experience in tech startups.
+Recently, I turned my career around to focus on Data Artificial Intelligence, taking a bootcamp where I learned Machine Learning (scikit-learn, tensorflow, pytorch, CNN, BERT among others). 
+
+
+- 🔭 I’m currently working on personal projects and looking for a job as data scientist
+- 💞️ I’m looking to collaborate on open source projects and AI 
+- 👩🏻‍💻 Fun fact: I only started to use the Internet in 2010
 - 🙋‍♂️ Feel free to reach out through my e-mail or my LinkedIn
 
 
