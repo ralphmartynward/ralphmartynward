@@ -1,6 +1,6 @@
 ### Hello everyone 👋
 
-![alt text](https://github.com/ralphmartynward/ralphmartynward/assets/img/cover.png)
+![cover image](https://raw.githubusercontent.com/ralphmartynward/ralphmartynward/master/assets/img/cover.png)
 
 
 Hi! 😊 I'm a **Project Manager** with 7+ years experience in tech startups.
