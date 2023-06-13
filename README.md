@@ -1,7 +1,7 @@
-### Hello everyone 👋
-
 ![cover image](https://raw.githubusercontent.com/ralphmartynward/ralphmartynward/master/assets/img/cover.png)
 
+
+### Hello everyone 👋
 
 Hi! 😊 I'm a **Project Manager** with 7+ years experience in tech startups.
 Recently, I turned my career around to focus on Data & Artificial Intelligence, taking a bootcamp where I learned Machine Learning (scikit-learn, tensorflow, pytorch, CNN, BERT among others). 
