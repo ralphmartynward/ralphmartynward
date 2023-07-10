@@ -1,25 +1,9 @@
 ![cover image](https://raw.githubusercontent.com/ralphmartynward/ralphmartynward/master/assets/img/cover.png)
 
-<!-- ======= Hero Section ======= -->
-<section id="hero" class="d-flex flex-column justify-content-center align-items-center">
-  <div class="hero-container" data-aos="fade-in">
-    <h1>Ralph Ward</h1>
-    <p>I'm a <span id="typed"></span></p>
-  </div>
-</section>
-<!-- End Hero -->
+I'm a 
+<a href="https://git.io/typing-svg"><img src="https://readme-typing-svg.demolab.com?font=Fira+Code&pause=1000&color=149DDD&width=435&lines=Project+Manager" alt="Typing SVG" /></a>
+[![Typing SVG](https://readme-typing-svg.demolab.com?font=Fira+Code&pause=1000&color=149DDD&width=435&lines=Data+Analyst)](https://git.io/typing-svg)
 
-<!-- Include the Typed.js Library -->
-<script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11"></script>
-<!-- Initialize the Typed.js Library -->
-<script>
-  var typed = new Typed('#typed', {
-    strings: ["Project Manager", "Data Analyst", "Entrepreneur"],
-    typeSpeed: 100,
-    backSpeed: 50,
-    loop: true
-  });
-</script>
 
 
 ### Hello everyone 👋
