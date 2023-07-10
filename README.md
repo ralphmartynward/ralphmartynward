@@ -2,7 +2,7 @@
 
 ## Ralph Ward
 
-[![Typing SVG](https://readme-typing-svg.demolab.com?font=Fira+Code&pause=1000&color=149DDD&width=435&lines=I'm+a+Project+Manager;I'm+a+Data+Analyst;I'm+an+Entrepreneur)](https://git.io/typing-svg)
+[!Typing SVG](https://readme-typing-svg.demolab.com?font=Fira+Code&pause=1000&color=149DDD&width=435&lines=I'm+a+Project+Manager;I'm+a+Data+Analyst;I'm+an+Entrepreneur)
 
 With 7+ years experience in tech startups.
 Recently, I turned my career around to focus on Data & Artificial Intelligence, taking a bootcamp where I learned Machine Learning (scikit-learn, tensorflow, pytorch, CNN, BERT among others). 
