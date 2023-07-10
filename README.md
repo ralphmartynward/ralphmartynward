@@ -1,6 +1,7 @@
 ![cover image](https://raw.githubusercontent.com/ralphmartynward/ralphmartynward/master/assets/img/cover.png)
 
-I'm a [![Typing SVG](https://readme-typing-svg.demolab.com?font=Fira+Code&pause=1000&color=149DDD&width=435&lines=Project+Manager;Data+Analyst;Entrepreneur)](https://git.io/typing-svg)
+I'm a 
+[![Typing SVG](https://readme-typing-svg.demolab.com?font=Fira+Code&pause=1000&color=149DDD&width=435&lines=Project+Manager;Data+Analyst;Entrepreneur)](https://git.io/typing-svg)
 
 
 
