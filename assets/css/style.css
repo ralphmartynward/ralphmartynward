@@ -239,11 +239,15 @@ h6 {
 # Hero Section
 --------------------------------------------------------------*/
 #hero {
+  position: relative; /* allow absolute positioning inside */
   width: 100%;
   height: 100vh;
-  background: url("../img/hero-bg.png") top center;
-  background-size: cover;
+  background-color: #2b3340; /* or your dark background color */
+  overflow: hidden;
 }
+
+
+
 
 #hero:before {
   content: "";
@@ -1102,5 +1106,22 @@ section {
     position: static;
     width: auto;
     padding-right: 20px 15px;
+  }
+}
+
+/* ===== Hero Portrait Override ===== */
+#hero .hero-portrait {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  height: 95vh;         /* scales with viewport height */
+  width: auto;
+  object-fit: contain;  /* keeps full image without cropping */
+  pointer-events: none; /* don't block clicks on content */
+}
+
+@media (max-width: 768px) {
+  #hero .hero-portrait {
+    height: 70vh; /* smaller on phones so it fits nicely */
   }
 }
