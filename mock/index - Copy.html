@@ -1,0 +1,1243 @@
+
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="robots" content="noindex,nofollow" />
+  <title>La Ville Rose — salon de thé à Toulouse</title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --bg:#fff6f8;
+      --paper:#ffffff;
+      --ink:#1f141a;
+      --muted:rgba(31,20,26,.72);
+      --pink:#ff3f9b;
+      --pink2:#ff7db8;
+      --rose:#ffd4e6;
+      --shadow:0 16px 40px rgba(25,10,16,.10);
+      --shadow2:0 10px 24px rgba(25,10,16,.08);
+      --ring:0 0 0 3px rgba(255,63,155,.22);
+      --radius:22px;
+      --radius2:28px;
+      --max:1140px;
+    }
+
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+      color:var(--ink);
+      background:
+        radial-gradient(900px 420px at 20% -10%, rgba(255,125,184,.18), transparent 65%),
+        radial-gradient(900px 420px at 80% 0%, rgba(255,63,155,.14), transparent 60%),
+        var(--bg);
+    }
+    a{color:inherit}
+    .container{max-width:var(--max); margin:0 auto; padding:0 20px}
+    .sr{position:absolute; left:-9999px; width:1px; height:1px; overflow:hidden}
+
+    /* ---------- HEADER (fixed) ---------- */
+    header{
+      position:sticky; top:0; z-index:50;
+      backdrop-filter:saturate(140%) blur(10px);
+      background:rgba(255,246,248,.70);
+      border-bottom:1px solid rgba(31,20,26,.08);
+    }
+    .topbar{
+      display:flex; align-items:center; justify-content:space-between;
+      gap:18px;
+      padding:14px 0;
+    }
+    .brand{
+      display:flex; align-items:center; gap:12px; min-width:260px;
+      text-decoration:none;
+    }
+    .mark{
+      width:38px; height:38px; border-radius:16px;
+      background:
+        radial-gradient(14px 14px at 30% 30%, rgba(255,255,255,.85), transparent 55%),
+        radial-gradient(18px 18px at 55% 55%, rgba(255,255,255,.45), transparent 60%),
+        radial-gradient(22px 22px at 40% 70%, rgba(255,63,155,.30), transparent 62%),
+        linear-gradient(160deg, rgba(255,63,155,.65), rgba(255,210,230,.90));
+      box-shadow:0 10px 26px rgba(255,63,155,.22);
+      border:1px solid rgba(31,20,26,.08);
+    }
+    .brand b{
+      font-family:"Libre Baskerville",serif;
+      letter-spacing:.06em;
+      text-transform:uppercase;
+      font-size:16px;
+      line-height:1.05;
+    }
+    .brand small{
+      display:block;
+      margin-top:2px;
+      color:var(--muted);
+      font-weight:500;
+      font-size:13px;
+    }
+
+    .nav{
+      display:flex; align-items:center; gap:10px; flex-wrap:wrap;
+    }
+    .pill{
+      display:inline-flex; align-items:center; justify-content:center;
+      height:40px;
+      padding:0 14px;
+      border-radius:999px;
+      border:1px solid rgba(31,20,26,.12);
+      background:rgba(255,255,255,.62);
+      box-shadow:0 8px 18px rgba(25,10,16,.05);
+      text-decoration:none;
+      font-weight:600;
+      color:rgba(31,20,26,.84);
+      transition:.18s ease;
+      white-space:nowrap;
+    }
+    .pill:hover{transform:translateY(-1px); border-color:rgba(255,63,155,.35)}
+    .pill:focus{outline:none; box-shadow:var(--ring), 0 8px 18px rgba(25,10,16,.05)}
+    .pill.primary{
+      border-color:rgba(255,63,155,.45);
+      background:linear-gradient(180deg, rgba(255,210,230,.72), rgba(255,255,255,.62));
+    }
+    .pill .dot{
+      width:8px; height:8px; border-radius:999px; background:rgba(255,63,155,.90);
+      margin-right:10px;
+      box-shadow:0 0 0 3px rgba(255,63,155,.20);
+    }
+
+    /* Mobile */
+    .burger{
+      display:none;
+      width:44px; height:44px; border-radius:14px;
+      border:1px solid rgba(31,20,26,.12);
+      background:rgba(255,255,255,.65);
+      box-shadow:0 8px 18px rgba(25,10,16,.05);
+      place-items:center;
+      cursor:pointer;
+    }
+    .burger span{width:18px;height:2px;background:rgba(31,20,26,.78);border-radius:2px;position:relative;display:block}
+    .burger span:before,.burger span:after{content:"";position:absolute;left:0;width:18px;height:2px;background:rgba(31,20,26,.78);border-radius:2px}
+    .burger span:before{top:-6px}
+    .burger span:after{top:6px}
+
+    .drawer{
+      display:none;
+      border-top:1px solid rgba(31,20,26,.08);
+      padding:12px 0 16px;
+    }
+    .drawer .nav{gap:10px}
+    .drawer[hidden]{display:none !important;}
+
+    @media (max-width: 980px){
+      .nav.desktop{display:none}
+      .burger{display:grid}
+      .brand{min-width:auto}
+    }
+
+    /* ---------- HERO ---------- */
+    .hero{
+      position:relative;
+      padding:26px 0 10px;
+    }
+    .heroWrap{
+      position:relative;
+      overflow:hidden;
+      border-radius:var(--radius2);
+      box-shadow:var(--shadow);
+      border:1px solid rgba(31,20,26,.10);
+      min-height:420px;
+      background:
+        radial-gradient(1200px 620px at 30% 10%, rgba(255,255,255,.55), transparent 60%),
+        radial-gradient(900px 520px at 80% 20%, rgba(255,63,155,.22), transparent 60%),
+        linear-gradient(120deg, rgba(255,210,230,.55), rgba(255,255,255,.40));
+    }
+    /* “Roses + neon” vibe without external images */
+    .heroWrap::before{
+      content:"";
+      position:absolute; inset:-40px;
+      background:
+        radial-gradient(220px 160px at 20% 25%, rgba(255,63,155,.25), transparent 70%),
+        radial-gradient(240px 180px at 40% 55%, rgba(255,125,184,.22), transparent 72%),
+        radial-gradient(240px 190px at 70% 35%, rgba(255,63,155,.18), transparent 72%),
+        radial-gradient(260px 210px at 85% 70%, rgba(255,125,184,.20), transparent 75%),
+        radial-gradient(420px 280px at 50% 50%, rgba(255,255,255,.18), transparent 68%);
+      filter: blur(2px);
+      opacity:.95;
+      transform:rotate(-2deg);
+    }
+    .heroWrap::after{
+      content:"";
+      position:absolute; inset:0;
+      background:linear-gradient(180deg, rgba(255,255,255,.10), rgba(255,246,248,.65));
+      pointer-events:none;
+    }
+
+    .heroInner{
+      position:relative;
+      display:grid;
+      grid-template-columns: 1.25fr .75fr;
+      gap:22px;
+      padding:28px;
+      align-items:end;
+    }
+
+    .glass{
+      border-radius:22px;
+      background:rgba(255,255,255,.58);
+      border:1px solid rgba(31,20,26,.10);
+      box-shadow:0 18px 40px rgba(25,10,16,.10);
+      padding:22px;
+      max-width:680px;
+    }
+    .kicker{
+      display:inline-flex; align-items:center; gap:10px;
+      font-weight:700; font-size:12px; letter-spacing:.12em;
+      text-transform:uppercase;
+      color:rgba(31,20,26,.70);
+      margin-bottom:8px;
+    }
+    .kicker .pin{
+      width:10px;height:10px;border-radius:999px;
+      background:rgba(255,63,155,.90);
+      box-shadow:0 0 0 4px rgba(255,63,155,.18);
+    }
+    h1{
+      font-family:"Libre Baskerville",serif;
+      font-size:44px;
+      line-height:1.04;
+      margin:0 0 10px;
+      letter-spacing:-.02em;
+      text-shadow:0 2px 0 rgba(255,255,255,.35);
+    }
+    h1 .neon{
+      color:rgba(255,63,155,.92);
+      text-shadow:
+        0 0 10px rgba(255,63,155,.35),
+        0 0 22px rgba(255,63,155,.20);
+    }
+    .lead{color:rgba(31,20,26,.78); font-size:15.5px; line-height:1.55; margin:0 0 14px}
+
+    .ctaRow{display:flex; flex-wrap:wrap; gap:10px; align-items:center}
+    .btn{
+      display:inline-flex; align-items:center; justify-content:center;
+      height:40px; padding:0 14px;
+      border-radius:999px;
+      border:1px solid rgba(31,20,26,.12);
+      background:rgba(255,255,255,.70);
+      text-decoration:none;
+      font-weight:700;
+      color:rgba(31,20,26,.84);
+      box-shadow:0 10px 22px rgba(25,10,16,.06);
+      transition:.18s ease;
+      white-space:nowrap;
+    }
+    .btn:hover{transform:translateY(-1px); border-color:rgba(255,63,155,.35)}
+    .btn:focus{outline:none; box-shadow:var(--ring), 0 10px 22px rgba(25,10,16,.06)}
+    .btn.primary{
+      background:linear-gradient(180deg, rgba(255,210,230,.85), rgba(255,255,255,.70));
+      border-color:rgba(255,63,155,.45);
+    }
+
+    .chips{display:flex; flex-wrap:wrap; gap:8px; margin-top:14px}
+    .chip{
+      display:inline-flex; align-items:center; gap:8px;
+      padding:8px 12px; border-radius:999px;
+      background:rgba(255,255,255,.52);
+      border:1px solid rgba(31,20,26,.10);
+      font-weight:700; font-size:12px; color:rgba(31,20,26,.74);
+    }
+    .chip .mini{
+      width:18px;height:18px;border-radius:8px;
+      background:linear-gradient(180deg, rgba(255,63,155,.35), rgba(255,255,255,.35));
+      border:1px solid rgba(31,20,26,.08);
+    }
+
+    .heroSide{
+      display:flex; align-items:stretch; justify-content:flex-end;
+    }
+    .sideCard{
+      width:100%;
+      max-width:320px;
+      border-radius:22px;
+      background:rgba(255,255,255,.52);
+      border:1px solid rgba(31,20,26,.10);
+      box-shadow:0 16px 36px rgba(25,10,16,.10);
+      padding:18px;
+    }
+    .sideCard h3{
+      margin:0 0 8px;
+      font-family:"Libre Baskerville",serif;
+      font-size:18px;
+    }
+    .sideCard p{margin:0 0 10px; color:rgba(31,20,26,.72); font-size:13.5px; line-height:1.45}
+    .sideRow{display:flex; gap:10px; flex-wrap:wrap}
+    .miniPill{
+      display:inline-flex; align-items:center; gap:8px;
+      padding:8px 10px;
+      border-radius:999px;
+      border:1px solid rgba(31,20,26,.12);
+      background:rgba(255,255,255,.62);
+      font-weight:800;
+      font-size:12px;
+      text-decoration:none;
+    }
+    .miniPill .dot{width:8px;height:8px;border-radius:999px;background:rgba(255,63,155,.88);box-shadow:0 0 0 3px rgba(255,63,155,.18)}
+    .miniPill:hover{border-color:rgba(255,63,155,.35)}
+
+    @media (max-width: 980px){
+      .heroInner{grid-template-columns:1fr; align-items:start}
+      .heroSide{justify-content:flex-start}
+      h1{font-size:38px}
+      .heroWrap{min-height:520px}
+    }
+
+    /* ---------- Sections ---------- */
+    main{padding-bottom:34px}
+    section{padding:28px 0}
+    section.alt{
+      background:linear-gradient(180deg, rgba(255,210,230,.28), rgba(255,246,248,.00));
+      border-top:1px solid rgba(31,20,26,.06);
+      border-bottom:1px solid rgba(31,20,26,.06);
+    }
+    .title{
+      font-family:"Libre Baskerville",serif;
+      font-size:22px;
+      margin:0 0 8px;
+    }
+    .sub{margin:0 0 16px; color:rgba(31,20,26,.72); font-size:14px}
+
+    /* Spirit cards */
+    .grid4{display:grid; grid-template-columns:repeat(4,1fr); gap:14px}
+    .card{
+      border-radius:18px;
+      background:rgba(255,255,255,.78);
+      border:1px solid rgba(31,20,26,.10);
+      box-shadow:var(--shadow2);
+      padding:14px;
+      min-height:110px;
+    }
+    .card b{display:flex; align-items:center; gap:8px}
+    .emoji{
+      width:28px;height:28px;border-radius:12px;
+      display:grid; place-items:center;
+      background:linear-gradient(180deg, rgba(255,210,230,.7), rgba(255,255,255,.6));
+      border:1px solid rgba(31,20,26,.08);
+    }
+    .card p{margin:8px 0 0; color:rgba(31,20,26,.72); font-size:13px; line-height:1.45}
+    @media (max-width:980px){
+      .grid4{grid-template-columns:1fr 1fr}
+    }
+    @media (max-width:560px){
+      .grid4{grid-template-columns:1fr}
+    }
+
+    /* Menu layout */
+    .menuWrap{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap:16px;
+      align-items:start;
+    }
+    @media (max-width:980px){
+      .menuWrap{grid-template-columns:1fr}
+    }
+
+    .menuBox{
+      border-radius:22px;
+      background:rgba(255,255,255,.82);
+      border:1px solid rgba(31,20,26,.10);
+      box-shadow:var(--shadow2);
+      padding:14px;
+    }
+
+    .tabs{
+      display:flex; flex-wrap:wrap; gap:8px;
+      margin-bottom:12px;
+    }
+    .tab{
+      appearance:none;
+      border:1px solid rgba(31,20,26,.12);
+      background:rgba(255,255,255,.68);
+      height:36px;
+      padding:0 12px;
+      border-radius:999px;
+      font-weight:800;
+      cursor:pointer;
+    }
+    .tab[aria-selected="true"]{
+      border-color:rgba(255,63,155,.45);
+      box-shadow:var(--ring);
+    }
+    .search{
+      width:100%;
+      height:40px;
+      border-radius:14px;
+      border:1px solid rgba(31,20,26,.12);
+      background:rgba(255,255,255,.70);
+      padding:0 12px;
+      font-weight:600;
+      margin-bottom:12px;
+    }
+    .search:focus{outline:none; box-shadow:var(--ring)}
+
+    .panel{display:none}
+    .panel.active{display:block}
+
+    .cols3{
+      display:grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap:12px;
+    }
+    @media (max-width:980px){
+      .cols3{grid-template-columns:1fr}
+    }
+
+    .group{
+      border-radius:18px;
+      border:1px solid rgba(31,20,26,.10);
+      background:rgba(255,255,255,.70);
+      padding:12px;
+    }
+    .group h4{
+      margin:0 0 8px;
+      font-family:"Libre Baskerville",serif;
+      font-size:16px;
+    }
+    .item{
+      display:flex; justify-content:space-between; gap:12px;
+      padding:9px 0;
+      border-top:1px dashed rgba(31,20,26,.14);
+    }
+    .item:first-of-type{border-top:none}
+    .name{font-weight:800}
+    .desc{font-size:12.5px; color:rgba(31,20,26,.70); margin-top:2px; line-height:1.35}
+    .price{font-weight:900; white-space:nowrap}
+
+    /* Custom orders */
+    .customWrap{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap:16px;
+      align-items:start;
+    }
+    @media (max-width:980px){
+      .customWrap{grid-template-columns:1fr}
+    }
+    .steps{
+      border-radius:22px;
+      background:rgba(255,255,255,.82);
+      border:1px solid rgba(31,20,26,.10);
+      box-shadow:var(--shadow2);
+      padding:14px;
+    }
+    .step{
+      display:flex; gap:10px;
+      padding:10px 0;
+      border-top:1px dashed rgba(31,20,26,.14);
+    }
+    .step:first-of-type{border-top:none}
+    .badge{
+      width:28px; height:28px; border-radius:12px;
+      display:grid; place-items:center;
+      background:linear-gradient(180deg, rgba(255,210,230,.8), rgba(255,255,255,.65));
+      border:1px solid rgba(31,20,26,.08);
+      font-weight:900;
+    }
+
+    .gallery4{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap:12px;
+    }
+    .ph{
+      border-radius:18px;
+      border:1px solid rgba(31,20,26,.10);
+      box-shadow:0 10px 24px rgba(25,10,16,.08);
+      overflow:hidden;
+      background:rgba(255,255,255,.75);
+      min-height:160px;
+      position:relative;
+      cursor:pointer;
+    }
+    .ph img{width:100%; height:100%; object-fit:cover; display:block}
+    .cap{
+      position:absolute; left:10px; top:10px;
+      background:rgba(255,255,255,.78);
+      border:1px solid rgba(31,20,26,.10);
+      padding:6px 10px;
+      border-radius:999px;
+      font-weight:800;
+      font-size:12px;
+      color:rgba(31,20,26,.78);
+      backdrop-filter:blur(8px);
+    }
+
+    /* Photos section */
+    .photosGrid{
+      display:grid;
+      grid-template-columns: 1.2fr .8fr;
+      gap:14px;
+    }
+    @media (max-width:980px){
+      .photosGrid{grid-template-columns:1fr}
+    }
+    .stack{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap:14px;
+    }
+    .stack .ph{min-height:140px}
+
+    /* Infos */
+    .infoWrap{
+      display:grid;
+      grid-template-columns: 1fr 1.2fr;
+      gap:16px;
+      align-items:start;
+    }
+    @media (max-width:980px){
+      .infoWrap{grid-template-columns:1fr}
+    }
+    .infoBox{
+      border-radius:22px;
+      background:rgba(255,255,255,.82);
+      border:1px solid rgba(31,20,26,.10);
+      box-shadow:var(--shadow2);
+      padding:14px;
+    }
+    .infoBox ul{margin:8px 0 0 18px; color:rgba(31,20,26,.74)}
+    .map{
+      border-radius:22px;
+      overflow:hidden;
+      border:1px solid rgba(31,20,26,.10);
+      box-shadow:var(--shadow2);
+      background:rgba(255,255,255,.70);
+    }
+    .map iframe{width:100%; height:320px; border:0; display:block}
+
+    /* Footer */
+    footer{
+      margin-top:22px;
+      padding:22px 0 30px;
+      border-top:1px solid rgba(31,20,26,.08);
+      background:rgba(255,246,248,.55);
+    }
+    .footRow{
+      display:flex; align-items:center; justify-content:space-between;
+      gap:16px; flex-wrap:wrap;
+      color:rgba(31,20,26,.68);
+      font-size:13px;
+    }
+
+    /* Lightbox */
+    .lightbox{
+      position:fixed; inset:0;
+      display:none;
+      place-items:center;
+      background:rgba(10,6,9,.60);
+      backdrop-filter:blur(8px);
+      z-index:200;
+      padding:22px;
+    }
+    .lightbox.open{display:grid}
+    .frame{
+      width:min(980px, 92vw);
+      border-radius:22px;
+      overflow:hidden;
+      background:#000;
+      box-shadow:0 20px 60px rgba(0,0,0,.35);
+      position:relative;
+    }
+    .frame img{width:100%; height:auto; display:block}
+    .frame button{
+      position:absolute; top:10px; right:10px;
+      width:40px; height:40px;
+      border-radius:14px;
+      border:1px solid rgba(255,255,255,.18);
+      background:rgba(255,255,255,.12);
+      color:#fff;
+      font-size:18px;
+      cursor:pointer;
+      backdrop-filter:blur(8px);
+    }
+  </style>
+</head>
+
+<body>
+  <!-- HEADER (single menu, no duplication) -->
+  <header>
+    <div class="container">
+      <div class="topbar">
+        <a class="brand" href="#top">
+          <span class="mark" aria-hidden="true"></span>
+          <span>
+            <b>LA VILLE ROSE</b>
+            <small>salon de thé • Toulouse</small>
+          </span>
+        </a>
+
+        <nav class="nav desktop" aria-label="Navigation principale">
+          <a class="pill" href="#esprit">L’esprit</a>
+          <a class="pill" href="#menu">Menu</a>
+          <a class="pill" href="#commandes">Commandes perso</a>
+          <a class="pill" href="#photos">Photos</a>
+          <a class="pill" href="#infos">Infos</a>
+          <a class="pill primary" href="https://www.instagram.com/lavillerosecafe?igsh=eWJucXYzczlubms3" target="_blank" rel="noreferrer">
+            <span class="dot" aria-hidden="true"></span> Instagram
+          </a>
+        </nav>
+
+        <button class="burger" id="burger" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="drawer">
+          <span aria-hidden="true"></span>
+        </button>
+      </div>
+
+      <!-- Mobile drawer (hidden by default; never duplicates on desktop) -->
+      <div class="drawer" id="drawer" hidden>
+        <nav class="nav" aria-label="Navigation mobile">
+          <a class="pill" href="#esprit">L’esprit</a>
+          <a class="pill" href="#menu">Menu</a>
+          <a class="pill" href="#commandes">Commandes perso</a>
+          <a class="pill" href="#photos">Photos</a>
+          <a class="pill" href="#infos">Infos</a>
+          <a class="pill primary" href="https://www.instagram.com/lavillerosecafe?igsh=eWJucXYzczlubms3" target="_blank" rel="noreferrer">
+            <span class="dot" aria-hidden="true"></span> Instagram
+          </a>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <main id="top">
+    <!-- HERO (keep the new fold banner) -->
+    <div class="hero">
+      <div class="container">
+        <div class="heroWrap">
+          <div class="heroInner">
+            <div class="glass">
+              <div class="kicker"><span class="pin"></span> Toulouse • salon de thé</div>
+              <h1><span class="neon">La Ville Rose</span>, pour prendre le temps.</h1>
+              <p class="lead">
+                Mur de roses, affiches pastel pop “déjantées”, brunch & desserts gourmands — un cocon
+                pour discuter, goûter, et repartir avec une photo parfaite.
+              </p>
+
+              <div class="ctaRow">
+                <a class="btn primary" href="#menu">Voir le menu</a>
+                <a class="btn" href="#photos">Voir les photos</a>
+                <a class="btn" href="#infos">Nous trouver</a>
+                <a class="btn" href="#commandes">Commande personnalisée</a>
+              </div>
+
+              <div class="chips" aria-label="Atouts">
+                <span class="chip"><span class="mini" aria-hidden="true"></span> Brunch</span>
+                <span class="chip"><span class="mini" aria-hidden="true"></span> Pâtisseries</span>
+                <span class="chip"><span class="mini" aria-hidden="true"></span> Milkshakes</span>
+                <span class="chip"><span class="mini" aria-hidden="true"></span> Terrasse</span>
+                <span class="chip"><span class="mini" aria-hidden="true"></span> Wi-Fi</span>
+                <span class="chip"><span class="mini" aria-hidden="true"></span> Animaux</span>
+              </div>
+            </div>
+
+            <div class="heroSide">
+              <div class="sideCard">
+                <h3>Les “incontournables”</h3>
+                <p>Brunch jusqu’à 15h • thés du monde • cocktails sans alcool • cakes sur commande.</p>
+                <div class="sideRow">
+                  <a class="miniPill" href="#menu"><span class="dot" aria-hidden="true"></span> Menu</a>
+                  <a class="miniPill" href="#infos"><span class="dot" aria-hidden="true"></span> Accès</a>
+                  <a class="miniPill" href="https://www.instagram.com/lavillerosecafe?igsh=eWJucXYzczlubms3" target="_blank" rel="noreferrer">
+                    <span class="dot" aria-hidden="true"></span> Insta
+                  </a>
+                </div>
+              </div>
+            </div>
+
+          </div><!-- /heroInner -->
+        </div><!-- /heroWrap -->
+      </div>
+    </div>
+
+    <!-- ESPRIT (separate section, clean background) -->
+    <section id="esprit" class="alt">
+      <div class="container">
+        <h2 class="title">L’esprit “La Ville Rose”</h2>
+        <p class="sub">Rose + rétro + moderne + un peu déjanté — comme les affiches derrière le comptoir.</p>
+
+        <div class="grid4">
+          <div class="card">
+            <b><span class="emoji" aria-hidden="true">🌸</span> Décor</b>
+            <p>Mur de roses, fleurs partout, lumière douce — ambiance photo-friendly.</p>
+          </div>
+          <div class="card">
+            <b><span class="emoji" aria-hidden="true">🥞</span> Brunch</b>
+            <p>Jusqu’à 15h : plat + boisson + dessert — version classique ou gourmande.</p>
+          </div>
+          <div class="card">
+            <b><span class="emoji" aria-hidden="true">🫖</span> Boissons</b>
+            <p>Thés du monde, cafés, milkshakes & smoothies — et du fait maison.</p>
+          </div>
+          <div class="card">
+            <b><span class="emoji" aria-hidden="true">🎂</span> Sur commande</b>
+            <p>Number cake, bento cake, donut birthday cake — personnalisable.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- MENU -->
+    <section id="menu">
+      <div class="container">
+        <h2 class="title">Menu</h2>
+        <p class="sub">Regroupement clair, onglets + recherche. (Photos cliquables si tu ajoutes des images.)</p>
+
+        <div class="menuWrap">
+          <div class="menuBox">
+            <div class="tabs" role="tablist" aria-label="Catégories menu">
+              <button class="tab" type="button" role="tab" aria-selected="true" data-tab="brunch">Brunch & plats</button>
+              <button class="tab" type="button" role="tab" aria-selected="false" data-tab="boissons">Boissons</button>
+              <button class="tab" type="button" role="tab" aria-selected="false" data-tab="the">Thés</button>
+              <button class="tab" type="button" role="tab" aria-selected="false" data-tab="cafe">Café & infusions</button>
+            </div>
+
+            <input id="menuSearch" class="search" type="search" placeholder="Rechercher (ex: burrata, mojito, earl grey…)" aria-label="Rechercher dans le menu" />
+
+            <!-- Brunch & plats -->
+            <div class="panel active" data-panel="brunch">
+              <div class="cols3">
+                <div class="group">
+                  <h4>Brunch</h4>
+                  <div class="item" data-item>
+                    <div>
+                      <div class="name">Brunch</div>
+                      <div class="desc">Jusqu’à 15h — plat, boisson, dessert.</div>
+                    </div>
+                    <div class="price">25€</div>
+                  </div>
+                </div>
+
+                <div class="group">
+                  <h4>Plats</h4>
+
+                  <div class="item" data-item>
+                    <div>
+                      <div class="name">Eggs muffins bacon</div>
+                      <div class="desc">Œuf bénédicte, bacon de dinde, cheddar, tomate, ciboulette.</div>
+                    </div>
+                    <div class="price">13€</div>
+                  </div>
+
+                  <div class="item" data-item>
+                    <div>
+                      <div class="name">Avocado toast</div>
+                      <div class="desc">Crème boursin rose, pain toasté, œuf, tomates cerises, saumon fumé, avocat.</div>
+                    </div>
+                    <div class="price">13€</div>
+                  </div>
+
+                  <div class="item" data-item>
+                    <div>
+                      <div class="name">Wrap au poulet</div>
+                      <div class="desc">Tortillas de blé, poulet crispy, salade, concombre, tomate.</div>
+                    </div>
+                    <div class="price">13,50€</div>
+                  </div>
+
+                  <div class="item" data-item>
+                    <div>
+                      <div class="name">Focaccia — tomate mozza</div>
+                      <div class="desc">Tomate, mozzarella, sauce pesto, basilic.</div>
+                    </div>
+                    <div class="price">12€</div>
+                  </div>
+
+                  <div class="item" data-item>
+                    <div>
+                      <div class="name">Bruschetta petite burrata</div>
+                      <div class="desc">Burrata 125g, olives, échalote, tomates cerises, huile truffe, pain toasté.</div>
+                    </div>
+                    <div class="price">14€</div>
+                  </div>
+
+                  <div class="item" data-item>
+                    <div>
+                      <div class="name">Bagel au saumon</div>
+                      <div class="desc">Avocat, saumon fumé, oignon, sauce tartare, feta.</div>
+                    </div>
+                    <div class="price">13€</div>
+                  </div>
+
+                  <div class="item" data-item>
+                    <div>
+                      <div class="name">Pinky burger</div>
+                      <div class="desc">Poulet crispy, double cheddar, sauce cheddar, cornichon, tomate, oignon rouge.</div>
+                    </div>
+                    <div class="price">15€</div>
+                  </div>
+
+                  <div class="item" data-item>
+                    <div>
+                      <div class="name">Burrata (300g)</div>
+                      <div class="desc">Burrata 300g, tomate, tomates cerises, pesto, basilic, vinaigre à la framboise.</div>
+                    </div>
+                    <div class="price">16€</div>
+                  </div>
+
+                  <div class="item" data-item>
+                    <div>
+                      <div class="name">Bao bun</div>
+                      <div class="desc">Salade, poulet crispy, graines de sésame, tomate, sauce taco épicée.</div>
+                    </div>
+                    <div class="price">13€</div>
+                  </div>
+                </div>
+
+                <div class="group">
+                  <h4>À partager</h4>
+                  <div class="item" data-item>
+                    <div>
+                      <div class="name">Pancakes x8</div>
+                      <div class="desc">Lotus / Nutella® / sirop d’érable / miel.</div>
+                    </div>
+                    <div class="price">9€</div>
+                  </div>
+                  <div class="item" data-item>
+                    <div>
+                      <div class="name">Plateau de fruits</div>
+                      <div class="desc">Fruits de saison.</div>
+                    </div>
+                    <div class="price">10€</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Boissons -->
+            <div class="panel" data-panel="boissons">
+              <div class="cols3">
+                <div class="group">
+                  <h4>Soft</h4>
+                  <div class="item" data-item><div><div class="name">Coca Cola</div><div class="desc">33cl</div></div><div class="price">4€</div></div>
+                  <div class="item" data-item><div><div class="name">Coca Cola cherry</div><div class="desc">33cl</div></div><div class="price">4€</div></div>
+                  <div class="item" data-item><div><div class="name">Coca Cola zero</div><div class="desc">33cl</div></div><div class="price">4€</div></div>
+                  <div class="item" data-item><div><div class="name">Coca Cola framboise</div><div class="desc">33cl</div></div><div class="price">5€</div></div>
+                  <div class="item" data-item><div><div class="name">Sprite</div><div class="desc">25cl</div></div><div class="price">4€</div></div>
+                  <div class="item" data-item><div><div class="name">Fanta</div><div class="desc">25cl</div></div><div class="price">4€</div></div>
+                  <div class="item" data-item><div><div class="name">Fuzetea (pêche)</div><div class="desc">25cl</div></div><div class="price">4€</div></div>
+                  <div class="item" data-item><div><div class="name">Fuzetea (menthe citron vert)</div><div class="desc">25cl</div></div><div class="price">4€</div></div>
+                  <div class="item" data-item><div><div class="name">Minute Maid (orange / pomme / multifruit / ananas / tomate)</div><div class="desc">25cl</div></div><div class="price">4€</div></div>
+                  <div class="item" data-item><div><div class="name">Evian</div><div class="desc">33cl</div></div><div class="price">4€</div></div>
+                  <div class="item" data-item><div><div class="name">Perrier</div><div class="desc">33cl</div></div><div class="price">4€</div></div>
+                  <div class="item" data-item><div><div class="name">Supplément sirop</div><div class="desc">—</div></div><div class="price">1€</div></div>
+                </div>
+
+                <div class="group">
+                  <h4>Smoothies</h4>
+                  <div class="item" data-item><div><div class="name">Fraise banane</div><div class="desc">44cl</div></div><div class="price">7€</div></div>
+                  <div class="item" data-item><div><div class="name">Pomme framboise</div><div class="desc">44cl</div></div><div class="price">7€</div></div>
+                  <div class="item" data-item><div><div class="name">Mangue myrtille</div><div class="desc">44cl</div></div><div class="price">7€</div></div>
+                  <div class="item" data-item><div><div class="name">Ananas coco</div><div class="desc">44cl</div></div><div class="price">7€</div></div>
+                  <div class="item" data-item><div><div class="name">Ananas mangue papaye</div><div class="desc">44cl</div></div><div class="price">7€</div></div>
+                  <div class="item" data-item><div><div class="name">Mangue carotte kiwi</div><div class="desc">44cl</div></div><div class="price">7€</div></div>
+                  <div class="item" data-item><div><div class="name">Banane goyave</div><div class="desc">44cl</div></div><div class="price">7€</div></div>
+                  <div class="item" data-item><div><div class="name">Banane chou</div><div class="desc">44cl</div></div><div class="price">7€</div></div>
+                  <div class="item" data-item><div><div class="name">Mangue citronnelle</div><div class="desc">44cl</div></div><div class="price">7€</div></div>
+                </div>
+
+                <div class="group">
+                  <h4>Milkshakes</h4>
+                  <div class="item" data-item><div><div class="name">Avocado</div><div class="desc">44cl</div></div><div class="price">8€</div></div>
+                  <div class="item" data-item><div><div class="name">Nutella® / Kinder Bueno</div><div class="desc">44cl</div></div><div class="price">8€</div></div>
+                  <div class="item" data-item><div><div class="name">Oreo</div><div class="desc">44cl</div></div><div class="price">8€</div></div>
+                  <div class="item" data-item><div><div class="name">Lotus Biskoff</div><div class="desc">44cl</div></div><div class="price">8€</div></div>
+                  <div class="item" data-item><div><div class="name">Vanille</div><div class="desc">44cl</div></div><div class="price">8€</div></div>
+
+                  <h4 style="margin-top:14px">Fait maison</h4>
+                  <div class="item" data-item><div><div class="name">Thé glacé</div><div class="desc">Fraise / framboise / passion / cerise / ananas / banane</div></div><div class="price">7€</div></div>
+                  <div class="item" data-item><div><div class="name">Jus d’orange pressé</div><div class="desc">—</div></div><div class="price">5,50€</div></div>
+                  <div class="item" data-item><div><div class="name">Citronnade</div><div class="desc">—</div></div><div class="price">5,50€</div></div>
+
+                  <h4 style="margin-top:14px">Cocktails sans alcool</h4>
+                  <div class="item" data-item><div><div class="name">Mojito (fraise/passion)</div><div class="desc">Jus de pomme, sirop rhum, citron vert, menthe fraîche</div></div><div class="price">8€</div></div>
+                  <div class="item" data-item><div><div class="name">Piña colada</div><div class="desc">Jus d’ananas, noix de coco, sirop rhum, jus de citron vert</div></div><div class="price">8€</div></div>
+                  <div class="item" data-item><div><div class="name">Instagramable</div><div class="desc">Sirop violette, limonade, jus citron vert, curaçao bleu</div></div><div class="price">8€</div></div>
+                  <div class="item" data-item><div><div class="name">Sex on the beach</div><div class="desc">Jus d’orange, cranberry, sirop pêche, sirop grenadine</div></div><div class="price">8€</div></div>
+                  <div class="item" data-item><div><div class="name">Bora-bora</div><div class="desc">Jus d’ananas, fruit de la passion, jus citron, sirop grenadine</div></div><div class="price">8€</div></div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Thés -->
+            <div class="panel" data-panel="the">
+              <div class="cols3">
+                <div class="group">
+                  <h4>Thé du monde — tarif unique</h4>
+                  <div class="item" data-item><div><div class="name">Tous les thés</div><div class="desc">—</div></div><div class="price">5€</div></div>
+                </div>
+
+                <div class="group">
+                  <h4>Thé noir</h4>
+                  <div class="item" data-item><div><div class="name">Earl Grey yin zhen N°0</div><div class="desc">Bergamote, pétales de fleurs.</div></div><div class="price">5€</div></div>
+                  <div class="item" data-item><div><div class="name">Agrumes N°142</div><div class="desc">Citron, citron vert, orange, bergamote, mandarine, clémentine.</div></div><div class="price">5€</div></div>
+                  <div class="item" data-item><div><div class="name">Myrtille, Châtaigne N°643</div><div class="desc">Saveur myrtille & châtaigne.</div></div><div class="price">5€</div></div>
+                  <div class="item" data-item><div><div class="name">Paul & Virginie N°11</div><div class="desc">Vanille, caramel, framboise, groseille, fraise, cerise.</div></div><div class="price">5€</div></div>
+                  <div class="item" data-item><div><div class="name">Jardin Bleu N°3</div><div class="desc">Rhubarbe, fraise des bois, pétales de fleur.</div></div><div class="price">5€</div></div>
+                  <div class="item" data-item><div><div class="name">Strong Breakfast N°6</div><div class="desc">—</div></div><div class="price">5€</div></div>
+                  <div class="item" data-item><div><div class="name">My Tiramisu N°658</div><div class="desc">Cacao, cannelle, arômes café, chocolat, crème…</div></div><div class="price">5€</div></div>
+                  <div class="item" data-item><div><div class="name">Rose N°202</div><div class="desc">Pétales & huile essentielle de rose.</div></div><div class="price">5€</div></div>
+                  <div class="item" data-item><div><div class="name">Mon petit chocolat N°532</div><div class="desc">Cacao, biscuit, amande.</div></div><div class="price">5€</div></div>
+                  <div class="item" data-item><div><div class="name">Thé des 1000 collines N°364</div><div class="desc">Gingembre, cannelle, poivre rose, cardamome, clou de girofle.</div></div><div class="price">5€</div></div>
+                  <div class="item" data-item><div><div class="name">Granola d’été N°533</div><div class="desc">Oolong, cranberry, céréales, noix, biscuit…</div></div><div class="price">5€</div></div>
+                  <div class="item" data-item><div><div class="name">Citron-Caviar Rose N°527</div><div class="desc">Bergamote + rose, notes boisées & cacaotées.</div></div><div class="price">5€</div></div>
+                  <div class="item" data-item><div><div class="name">Banana pancake</div><div class="desc">Banane, sirop d’érable, vanille, sarrasin.</div></div><div class="price">5€</div></div>
+                </div>
+
+                <div class="group">
+                  <h4>Thé vert</h4>
+                  <div class="item" data-item><div><div class="name">Bali N°315</div><div class="desc">Jasmin, litchi, pamplemousse, pêche… + huile essentielle de rose.</div></div><div class="price">5€</div></div>
+                  <div class="item" data-item><div><div class="name">Volupté N°231</div><div class="desc">Écorces d’orange, huiles essentielles (orange, bergamote, citron).</div></div><div class="price">5€</div></div>
+                  <div class="item" data-item><div><div class="name">Nuit à Versailles N°277</div><div class="desc">Bergamote, kiwi, fleur d’oranger, violette, pêche.</div></div><div class="price">5€</div></div>
+                  <div class="item" data-item><div><div class="name">Minty Tea N°665</div><div class="desc">Menthe douce & menthe poivrée.</div></div><div class="price">5€</div></div>
+                  <div class="item" data-item><div><div class="name">Miss Damann N°477</div><div class="desc">Gingembre, citron, fruit de la passion.</div></div><div class="price">5€</div></div>
+                  <div class="item" data-item><div><div class="name">Calabria N°59</div><div class="desc">Bergamote.</div></div><div class="price">5€</div></div>
+                  <div class="item" data-item><div><div class="name">Soleil Vert 16</div><div class="desc">Orange sanguine, écorces d’orange.</div></div><div class="price">5€</div></div>
+                  <div class="item" data-item><div><div class="name">1 2 3, je m’en vais aux bois</div><div class="desc">Cerise, framboise, fraise, groseille, cassis, menthe.</div></div><div class="price">5€</div></div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Café & infusions -->
+            <div class="panel" data-panel="cafe">
+              <div class="cols3">
+                <div class="group">
+                  <h4>Infusion</h4>
+                  <div class="item" data-item><div><div class="name">Thé blanc, Passion de fleurs N°20</div><div class="desc">Abricot, fruit de la passion + huile essentielle de rose.</div></div><div class="price">5€</div></div>
+                  <div class="item" data-item><div><div class="name">Rooibos Carrot Cake N°596</div><div class="desc">Cannelle, gingembre, carotte, amande, noix…</div></div><div class="price">5€</div></div>
+                  <div class="item" data-item><div><div class="name">Rooibos My Madeleine N°654</div><div class="desc">Écorces de citron, amandes, vanille.</div></div><div class="price">5€</div></div>
+                  <div class="item" data-item><div><div class="name">Carcadet Passion Framboise N°539</div><div class="desc">Hibiscus, pomme, framboise, passion.</div></div><div class="price">5€</div></div>
+                  <div class="item" data-item><div><div class="name">Carcadet Citron Vert N°540</div><div class="desc">Hibiscus, pomme, litchi + huile essentielle de citron vert.</div></div><div class="price">5€</div></div>
+                  <div class="item" data-item><div><div class="name">Carcadet Pinacolada N°400</div><div class="desc">Hibiscus, pomme, ananas, noix de coco.</div></div><div class="price">5€</div></div>
+                  <div class="item" data-item><div><div class="name">Tisane Cereal Lover Caramel N°648</div><div class="desc">Avoine (sans gluten), toffee, céréales.</div></div><div class="price">5€</div></div>
+                  <div class="item" data-item><div><div class="name">Camomille Matricaire N°450</div><div class="desc">—</div></div><div class="price">5€</div></div>
+                </div>
+
+                <div class="group">
+                  <h4>Café</h4>
+                  <div class="item" data-item><div><div class="name">Ristretto</div><div class="desc">—</div></div><div class="price">2€</div></div>
+                  <div class="item" data-item><div><div class="name">Espresso</div><div class="desc">—</div></div><div class="price">2,50€</div></div>
+                  <div class="item" data-item><div><div class="name">Café américain</div><div class="desc">—</div></div><div class="price">2,50€</div></div>
+                  <div class="item" data-item><div><div class="name">Noisette</div><div class="desc">—</div></div><div class="price">2,50€</div></div>
+                  <div class="item" data-item><div><div class="name">Café au lait</div><div class="desc">—</div></div><div class="price">3,50€</div></div>
+                  <div class="item" data-item><div><div class="name">Café crème</div><div class="desc">—</div></div><div class="price">3,50€</div></div>
+                  <div class="item" data-item><div><div class="name">Cappuccino</div><div class="desc">—</div></div><div class="price">4,50€</div></div>
+                  <div class="item" data-item><div><div class="name">Latte Macchiato</div><div class="desc">Espresso, lait chaud, mousse de lait.</div></div><div class="price">4,50€</div></div>
+                  <div class="item" data-item><div><div class="name">Café Viennois</div><div class="desc">Double chantilly + cacao.</div></div><div class="price">5€</div></div>
+                  <div class="item" data-item><div><div class="name">Chocolat chaud chantilly</div><div class="desc">—</div></div><div class="price">5,50€</div></div>
+                  <div class="item" data-item><div><div class="name">Café frappé</div><div class="desc">Tiramisu / Cookie / Vanille / Brownie / Spéculoos / Caramel</div></div><div class="price">6€</div></div>
+                  <div class="item" data-item><div><div class="name">Chocolat frappé</div><div class="desc">Tiramisu / Cookie / Vanille / Brownie / Spéculoos / Caramel</div></div><div class="price">6€</div></div>
+                </div>
+
+                <div class="group">
+                  <h4>Suppléments sirop</h4>
+                  <div class="item" data-item><div><div class="name">Vanille / Cookie / Brownie / Tiramisu / Caramel / Spéculoos / Cannelle</div><div class="desc">—</div></div><div class="price">0,50€</div></div>
+                  <p class="sub" style="margin:10px 0 0">Toutes les préparations à base de café sont aussi réalisables en décaféiné.</p>
+                </div>
+              </div>
+            </div>
+
+          </div><!-- /menuBox -->
+        </div><!-- /menuWrap -->
+      </div>
+    </section>
+
+    <!-- COMMANDES PERSO (separate section, no overlay) -->
+    <section id="commandes" class="alt">
+      <div class="container">
+        <h2 class="title">Commandes personnalisées</h2>
+        <p class="sub">Pour anniversaires, surprises, événements — le style “story insta” assumé.</p>
+
+        <div class="customWrap">
+          <div class="steps">
+            <div style="display:flex; align-items:center; justify-content:space-between; gap:12px; flex-wrap:wrap">
+              <div>
+                <div class="title" style="margin:0; font-size:18px">Gâteaux sur mesure (Number • Bento • Birthday…)</div>
+                <p class="sub" style="margin:6px 0 0">Contact idéalement au moins une semaine avant. Clique sur une image pour zoom.</p>
+              </div>
+              <a class="btn primary" href="https://www.instagram.com/lavillerosecafe?igsh=eWJucXYzczlubms3" target="_blank" rel="noreferrer">DM Instagram</a>
+            </div>
+
+            <div class="step">
+              <div class="badge">1</div>
+              <div><b>Contact</b><div class="desc">Écris en DM : date, message, budget approximatif.</div></div>
+            </div>
+            <div class="step">
+              <div class="badge">2</div>
+              <div><b>Détails</b><div class="desc">Nombre de parts / personnes • thème • texte à écrire.</div></div>
+            </div>
+            <div class="step">
+              <div class="badge">3</div>
+              <div><b>Choix</b><div class="desc">Base + goûts (fruits / chocolat…) + visuels.</div></div>
+            </div>
+            <div class="step">
+              <div class="badge">4</div>
+              <div><b>Validation</b><div class="desc">Timing + retrait + organisation.</div></div>
+            </div>
+
+            <div class="chip" style="margin-top:10px; display:inline-flex">
+              <span class="mini" aria-hidden="true"></span> À partir de : bento (35–37€) • number cake (≈80€)
+            </div>
+          </div>
+
+          <!-- Replace these images with your real ones when you have URLs/files -->
+          <div class="gallery4">
+            <div class="ph" data-full="" role="button" tabindex="0" aria-label="Agrandir photo">
+              <span class="cap">Exemple number cake</span>
+              <img alt="Exemple number cake (placeholder)" src="https://images.unsplash.com/photo-1542826438-5b2b36f5b2f1?auto=format&fit=crop&w=1200&q=70">
+            </div>
+            <div class="ph" data-full="" role="button" tabindex="0" aria-label="Agrandir photo">
+              <span class="cap">Exemple bento cake</span>
+              <img alt="Exemple bento cake (placeholder)" src="https://images.unsplash.com/photo-1541783245831-57d6fb0926d3?auto=format&fit=crop&w=1200&q=70">
+            </div>
+            <div class="ph" data-full="" role="button" tabindex="0" aria-label="Agrandir photo">
+              <span class="cap">Exemple birthday cake</span>
+              <img alt="Exemple birthday cake (placeholder)" src="https://images.unsplash.com/photo-1505253716362-afaea1d3d1af?auto=format&fit=crop&w=1200&q=70">
+            </div>
+            <div class="ph" data-full="" role="button" tabindex="0" aria-label="Agrandir photo">
+              <span class="cap">Choix de génoise</span>
+              <img alt="Génoises (placeholder)" src="https://images.unsplash.com/photo-1602351447937-745cb720612f?auto=format&fit=crop&w=1200&q=70">
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PHOTOS -->
+    <section id="photos">
+      <div class="container">
+        <h2 class="title">Photos</h2>
+        <p class="sub">Quelques visuels “vibe” (remplace par vos photos réelles quand tu veux).</p>
+
+        <div class="photosGrid">
+          <div class="ph" data-full="" role="button" tabindex="0" aria-label="Agrandir photo">
+            <span class="cap">Façade fleurie</span>
+            <img alt="Façade (placeholder)" src="https://images.unsplash.com/photo-1521017432531-fbd92d768814?auto=format&fit=crop&w=1400&q=70">
+          </div>
+
+          <div class="stack">
+            <div class="ph" data-full="" role="button" tabindex="0" aria-label="Agrandir photo">
+              <span class="cap">Mur de roses</span>
+              <img alt="Mur de roses (placeholder)" src="https://images.unsplash.com/photo-1526045431048-f857369baa09?auto=format&fit=crop&w=1000&q=70">
+            </div>
+            <div class="ph" data-full="" role="button" tabindex="0" aria-label="Agrandir photo">
+              <span class="cap">Affiches pastel</span>
+              <img alt="Affiches (placeholder)" src="https://images.unsplash.com/photo-1520975958225-2c1d8a3a7dbe?auto=format&fit=crop&w=1000&q=70">
+            </div>
+            <div class="ph" data-full="" role="button" tabindex="0" aria-label="Agrandir photo">
+              <span class="cap">Détail déco</span>
+              <img alt="Déco (placeholder)" src="https://images.unsplash.com/photo-1524041255072-7da0525d6b34?auto=format&fit=crop&w=1000&q=70">
+            </div>
+            <div class="ph" data-full="" role="button" tabindex="0" aria-label="Agrandir photo">
+              <span class="cap">Menu</span>
+              <img alt="Menu (placeholder)" src="https://images.unsplash.com/photo-1541542684-4bf98f7b09b5?auto=format&fit=crop&w=1000&q=70">
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- INFOS -->
+    <section id="infos" class="alt">
+      <div class="container">
+        <h2 class="title">Infos & accès</h2>
+        <p class="sub">Repères rapides pour venir (et repartir avec un bon goûter).</p>
+
+        <div class="infoWrap">
+          <div class="infoBox">
+            <b>Sur place</b>
+            <ul>
+              <li>Salon de thé à Toulouse (secteur Gare Matabiau).</li>
+              <li>Brunch jusqu’à 15h (selon formule).</li>
+              <li>Thés du monde (tarif unique) + cafés.</li>
+              <li>Commandes personnalisées : prévoir au moins 1 semaine.</li>
+            </ul>
+
+            <div class="ctaRow" style="margin-top:14px">
+              <a class="btn primary" href="#menu">Voir le menu</a>
+              <a class="btn" href="#commandes">Commander un gâteau</a>
+              <a class="btn" href="https://www.google.com/maps/search/?api=1&query=La%20Ville%20Rose%20salon%20de%20th%C3%A9%20Toulouse" target="_blank" rel="noreferrer">Ouvrir dans Google Maps</a>
+              <a class="btn" href="https://www.instagram.com/lavillerosecafe?igsh=eWJucXYzczlubms3" target="_blank" rel="noreferrer">Instagram</a>
+            </div>
+          </div>
+
+          <div class="map" aria-label="Carte Google Maps">
+            <iframe
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+              src="https://www.google.com/maps?q=La%20Ville%20Rose%20salon%20de%20th%C3%A9%20Toulouse&output=embed"
+              title="Carte — La Ville Rose, Toulouse">
+            </iframe>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <div class="container">
+        <div class="footRow">
+          <div>
+            <div style="display:flex; align-items:center; gap:10px">
+              <span class="mark" aria-hidden="true" style="width:34px;height:34px;border-radius:14px"></span>
+              <b style="font-family:'Libre Baskerville',serif;letter-spacing:.06em;text-transform:uppercase">LA VILLE ROSE</b>
+            </div>
+            <div style="margin-top:4px">Salon de thé à Toulouse — rose, fleuri, rétro, gourmand.</div>
+          </div>
+          <a class="btn primary" href="https://www.instagram.com/lavillerosecafe?igsh=eWJucXYzczlubms3" target="_blank" rel="noreferrer">
+            <span class="dot" aria-hidden="true" style="margin-right:10px"></span> Instagram
+          </a>
+        </div>
+      </div>
+    </footer>
+  </main>
+
+  <!-- Lightbox -->
+  <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Agrandissement image">
+    <div class="frame">
+      <button type="button" id="lbClose" aria-label="Fermer">✕</button>
+      <img id="lbImg" alt="" src="" />
+    </div>
+  </div>
+
+  <script>
+    // -------- Mobile drawer (prevents “double menu”) --------
+    const burger = document.getElementById('burger');
+    const drawer = document.getElementById('drawer');
+
+    function setDrawer(open){
+      if(open){
+        drawer.hidden = false;
+        burger.setAttribute('aria-expanded', 'true');
+        burger.setAttribute('aria-label', 'Fermer le menu');
+      }else{
+        drawer.hidden = true;
+        burger.setAttribute('aria-expanded', 'false');
+        burger.setAttribute('aria-label', 'Ouvrir le menu');
+      }
+    }
+    setDrawer(false);
+
+    burger?.addEventListener('click', () => {
+      setDrawer(!drawer.hidden);
+    });
+
+    // Close drawer on resize to desktop
+    window.addEventListener('resize', () => {
+      if(window.matchMedia('(min-width: 981px)').matches) setDrawer(false);
+    });
+
+    // -------- Smooth scroll --------
+    document.addEventListener('click', (e) => {
+      const a = e.target.closest('a[href^="#"]');
+      if(!a) return;
+      const id = a.getAttribute('href');
+      const el = document.querySelector(id);
+      if(!el) return;
+      e.preventDefault();
+      el.scrollIntoView({behavior:'smooth', block:'start'});
+      setDrawer(false);
+    });
+
+    // -------- Tabs --------
+    const tabs = [...document.querySelectorAll('.tab')];
+    const panels = [...document.querySelectorAll('.panel')];
+
+    function setTab(key){
+      tabs.forEach(t => {
+        const active = t.dataset.tab === key;
+        t.setAttribute('aria-selected', active ? 'true' : 'false');
+        t.tabIndex = active ? 0 : -1;
+      });
+      panels.forEach(p => p.classList.toggle('active', p.dataset.panel === key));
+      const q = document.getElementById('menuSearch');
+      if(q) q.value = '';
+      filterMenu('');
+    }
+
+    tabs.forEach(t => {
+      t.addEventListener('click', () => setTab(t.dataset.tab));
+      t.addEventListener('keydown', (ev) => {
+        const idx = tabs.indexOf(t);
+        if(ev.key === 'ArrowRight'){ tabs[(idx+1)%tabs.length].focus(); }
+        if(ev.key === 'ArrowLeft'){ tabs[(idx-1+tabs.length)%tabs.length].focus(); }
+        if(ev.key === 'Enter' || ev.key === ' '){ ev.preventDefault(); setTab(t.dataset.tab); }
+      });
+    });
+
+    // -------- Search within visible panel --------
+    const search = document.getElementById('menuSearch');
+    const items = [...document.querySelectorAll('[data-item]')];
+
+    function norm(s){ return (s||'').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,''); }
+    function isVisible(el){
+      const panel = el.closest('.panel');
+      return panel && panel.classList.contains('active');
+    }
+
+    function filterMenu(query){
+      const q = norm(query);
+      items.forEach(it => {
+        if(!isVisible(it)){ it.style.display = ''; return; }
+        const text = norm(it.innerText);
+        it.style.display = text.includes(q) ? '' : 'none';
+      });
+    }
+
+    search?.addEventListener('input', () => filterMenu(search.value));
+
+    // -------- Lightbox for .ph images --------
+    const lb = document.getElementById('lightbox');
+    const lbImg = document.getElementById('lbImg');
+    const lbClose = document.getElementById('lbClose');
+
+    function openLb(src, alt){
+      lbImg.src = src;
+      lbImg.alt = alt || '';
+      lb.classList.add('open');
+    }
+    function closeLb(){
+      lb.classList.remove('open');
+      lbImg.src = '';
+    }
+
+    document.querySelectorAll('.ph').forEach(card => {
+      const img = card.querySelector('img');
+      if(!img) return;
+
+      function handler(){
+        openLb(img.currentSrc || img.src, img.alt);
+      }
+
+      card.addEventListener('click', handler);
+      card.addEventListener('keydown', (e) => {
+        if(e.key === 'Enter' || e.key === ' '){ e.preventDefault(); handler(); }
+      });
+    });
+
+    lbClose?.addEventListener('click', closeLb);
+    lb?.addEventListener('click', (e) => {
+      if(e.target === lb) closeLb();
+    });
+    document.addEventListener('keydown', (e) => {
+      if(e.key === 'Escape' && lb.classList.contains('open')) closeLb();
+    });
+  </script>
+</body>
+</html>

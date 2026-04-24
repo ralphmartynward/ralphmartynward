@@ -1,0 +1,1017 @@
+
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>La Ville Rose — salon de thé à Toulouse</title>
+  <meta name="description" content="Salon de thé rose & rétro à Toulouse. Brunch, thés du monde, smoothies, milkshakes et commandes personnalisées." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Libre+Baskerville:wght@400;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --bg:#fff7f6;
+      --sectionA:#fff7f6;        /* light blush */
+      --sectionB:#ffffff;        /* white */
+      --paper:#fffdfc;
+      --ink:#1f141a;
+      --muted:#6d5b63;
+      --rose:#f5b9c9;
+      --hot:#ff3f9b;
+      --gold:#c7a36a;
+      --line:rgba(31,20,26,.12);
+      --shadow:0 14px 46px rgba(20,10,16,.12);
+      --shadow-soft:0 10px 28px rgba(20,10,16,.08);
+      --r:22px;
+      --r2:32px;
+      --max:1180px;
+    }
+
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      color:var(--ink);
+      background: var(--bg);
+      font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, sans-serif;
+      line-height:1.45;
+      overflow-x:hidden;
+    }
+    a{color:inherit}
+    .wrap{max-width:var(--max); margin:0 auto; padding:0 18px}
+    .skip{position:absolute; left:-999px; top:auto; width:1px; height:1px; overflow:hidden}
+    .skip:focus{left:12px;top:12px;width:auto;height:auto;background:#fff;padding:10px 12px;border-radius:14px;box-shadow:var(--shadow)}
+
+    /* Top header */
+    .topbar{
+      position:sticky; top:0; z-index:50;
+      backdrop-filter:saturate(1.4) blur(12px);
+      background: rgba(255, 247, 246, .86);
+      border-bottom:1px solid var(--line);
+    }
+    .nav{
+      display:flex; align-items:center; justify-content:space-between;
+      gap:14px; padding:12px 0;
+    }
+    .brand{
+      display:flex; align-items:center; gap:12px;
+      text-decoration:none;
+      min-width:240px;
+    }
+    .mark{
+      width:44px; height:44px; border-radius:16px;
+      background: linear-gradient(145deg, rgba(245,185,201,.80), rgba(255,255,255,.92));
+      border:1px solid rgba(31,20,26,.10);
+      box-shadow: 0 10px 26px rgba(20,10,16,.10);
+      display:grid; place-items:center;
+      overflow:hidden;
+    }
+    .brand h1{
+      margin:0;
+      font-family:"Libre Baskerville", serif;
+      font-weight:700;
+      letter-spacing:.08em;
+      text-transform:uppercase;
+      font-size:14px;
+      line-height:1.05;
+    }
+    .brand small{
+      display:block; margin-top:3px;
+      font-family: Inter, sans-serif;
+      color:var(--muted);
+      font-size:12px;
+      font-weight:800;
+      letter-spacing:.02em;
+    }
+    nav.links{display:flex; gap:10px; flex-wrap:wrap; justify-content:flex-end}
+    nav.links a{
+      text-decoration:none;
+      padding:10px 12px;
+      border-radius:999px;
+      border:1px solid rgba(31,20,26,.10);
+      background: rgba(255,255,255,.60);
+      box-shadow: 0 6px 18px rgba(20,10,16,.06);
+      font-weight:900;
+      font-size:13px;
+      color: rgba(31,20,26,.90);
+      transition: transform .15s ease, background .15s ease;
+    }
+    nav.links a:hover{transform: translateY(-1px); background: rgba(255,255,255,.82)}
+    nav.links a.primary{
+      background: linear-gradient(180deg, rgba(245,185,201,.98), rgba(245,185,201,.60));
+      border-color: rgba(255,63,155,.22);
+    }
+
+    .burger{display:none; width:44px;height:44px;border-radius:14px;border:1px solid rgba(31,20,26,.10);background:rgba(255,255,255,.60);box-shadow:0 6px 18px rgba(20,10,16,.06); place-items:center}
+    .burger span{display:block;width:18px;height:2px;background:rgba(31,20,26,.75);border-radius:2px; position:relative}
+    .burger span::before,.burger span::after{content:"";position:absolute;left:0;width:18px;height:2px;background:rgba(31,20,26,.75);border-radius:2px}
+    .burger span::before{top:-6px}
+    .burger span::after{top:6px}
+
+    /* HERO — simplified (no 3 tiles, fewer CTAs) */
+    .hero{
+      position:relative;
+      min-height: 68vh;
+      display:grid;
+      align-items:end;
+      overflow:hidden;
+      border-bottom:1px solid rgba(31,20,26,.08);
+      isolation:isolate;
+      background: var(--sectionA);
+    }
+    .hero::before{
+      content:"";
+      position:absolute; inset:0;
+      background: url("./assets/hero-roses-neon.jpg");
+      background-size: cover;
+      background-position: center;
+      transform: scale(1.02);
+      filter:saturate(1.06) contrast(1.02);
+      z-index:0;
+    }
+    .hero::after{
+      content:"";
+      position:absolute; inset:0;
+      background:
+        radial-gradient(900px 520px at 18% 22%, rgba(255,255,255,.20), transparent 60%),
+        radial-gradient(900px 520px at 72% 18%, rgba(255,63,155,.18), transparent 65%),
+        linear-gradient(180deg, rgba(15,8,12,.70) 0%, rgba(15,8,12,.40) 46%, rgba(255,247,246,.92) 100%);
+      z-index:1;
+      pointer-events:none;
+    }
+
+    .heroInner{position:relative; z-index:3; padding: 96px 0 38px;}
+    .heroCard{
+      width:min(760px, 100%);
+      border-radius: var(--r2);
+      border:1px solid rgba(255,255,255,.22);
+      background: rgba(255,255,255,.14);
+      box-shadow: 0 30px 90px rgba(0,0,0,.30);
+      backdrop-filter: blur(16px) saturate(1.15);
+      padding: 22px 22px 18px;
+    }
+    .kicker{
+      display:flex; align-items:center; gap:10px;
+      color: rgba(255,255,255,.90);
+      font-weight:900;
+      letter-spacing:.10em;
+      text-transform:uppercase;
+      font-size:12px;
+      text-shadow: 0 10px 22px rgba(0,0,0,.35);
+    }
+    .dot{width:8px;height:8px;border-radius:99px;background:var(--hot);box-shadow:0 0 0 7px rgba(255,63,155,.22)}
+    .neon{
+      margin: 12px 0 6px;
+      font-family:"Libre Baskerville", serif;
+      letter-spacing:.14em;
+      text-transform:uppercase;
+      font-weight:700;
+      font-size: clamp(30px, 4.6vw, 46px);
+      color: #ffe9f3;
+      text-shadow:
+        0 0 10px rgba(255,63,155,.70),
+        0 0 24px rgba(255,63,155,.46),
+        0 0 46px rgba(255,63,155,.28),
+        0 18px 60px rgba(0,0,0,.35);
+    }
+    .subtitle{
+      margin:0 0 10px;
+      font-family:"Playfair Display", serif;
+      font-weight:600;
+      font-size: clamp(22px, 3.2vw, 30px);
+      line-height:1.10;
+      color:#fff;
+      text-shadow: 0 12px 30px rgba(0,0,0,.35);
+    }
+    .lead{
+      margin:0;
+      color: rgba(255,255,255,.88);
+      max-width: 72ch;
+      font-size: 15px;
+      line-height:1.65;
+      text-shadow: 0 10px 22px rgba(0,0,0,.35);
+    }
+    .ctaRow{
+      display:flex; gap:10px; flex-wrap:wrap;
+      margin-top: 14px;
+      position:relative;
+      z-index:5;
+    }
+    .btn{
+      display:inline-flex; align-items:center; gap:10px;
+      padding:12px 14px;
+      border-radius:999px;
+      border:1px solid rgba(255,255,255,.22);
+      text-decoration:none;
+      background: rgba(255,255,255,.12);
+      color:#fff;
+      font-weight:900;
+      box-shadow: 0 18px 46px rgba(0,0,0,.22);
+      transition: transform .15s ease, background .15s ease;
+      cursor:pointer;
+    }
+    .btn:hover{transform: translateY(-1px); background: rgba(255,255,255,.18)}
+    .btn.primary{
+      background: linear-gradient(180deg, rgba(245,185,201,.92), rgba(245,185,201,.34));
+      border-color: rgba(255,63,155,.35);
+      color: #2a121c;
+      box-shadow: 0 18px 46px rgba(255,63,155,.18);
+    }
+    .btn .mini{width:10px;height:10px;border-radius:99px;background:var(--hot)}
+    .subLinks{
+      margin-top:10px;
+      display:flex; gap:10px; flex-wrap:wrap;
+      color: rgba(255,255,255,.86);
+      font-weight:900;
+      font-size:12px;
+    }
+    .subLinks a{
+      text-decoration:none;
+      padding: 8px 10px;
+      border-radius: 999px;
+      border:1px solid rgba(255,255,255,.16);
+      background: rgba(0,0,0,.18);
+      backdrop-filter: blur(10px);
+    }
+
+    /* Sections — alternating backgrounds to remove “overlay” confusion */
+    section{padding: 40px 0}
+    section.sectionA{background: var(--sectionA)}
+    section.sectionB{background: var(--sectionB)}
+    .sectionHead{
+      display:flex; align-items:flex-end; justify-content:space-between;
+      gap:14px; flex-wrap:wrap;
+      margin-bottom: 14px;
+    }
+    .sectionHead h2{
+      margin:0;
+      font-family:"Playfair Display", serif;
+      font-weight:600;
+      font-size: 30px;
+      letter-spacing:-.01em;
+    }
+    .sectionHead p{margin:0;color:rgba(31,20,26,.68);max-width:78ch}
+
+    /* L’esprit */
+    .highlights{
+      display:grid;
+      grid-template-columns: repeat(4, minmax(0,1fr));
+      gap:12px;
+      margin-top: 14px;
+    }
+    .hl{
+      border-radius: 22px;
+      border:1px solid rgba(31,20,26,.10);
+      background: rgba(255,255,255,.82);
+      box-shadow: var(--shadow-soft);
+      padding: 14px;
+      position:relative;
+      overflow:hidden;
+      min-height: 116px;
+    }
+    .hl::before{
+      content:"";
+      position:absolute; inset:-30px -40px auto auto;
+      width:150px;height:150px;border-radius: 40px;
+      background:
+        radial-gradient(circle at 30% 30%, rgba(255,63,155,.18), transparent 60%),
+        radial-gradient(circle at 60% 70%, rgba(245,185,201,.48), transparent 55%),
+        radial-gradient(circle at 20% 80%, rgba(199,163,106,.14), transparent 60%);
+      transform: rotate(14deg);
+      opacity:.9;
+    }
+    .hl b{display:block;font-weight:900}
+    .hl span{display:block;margin-top:6px;color:rgba(31,20,26,.72);font-size:13px;line-height:1.55}
+
+    /* MENU — remove right pop-art cards entirely */
+    .menuWrap{
+      display:block; /* single column now */
+    }
+    .menuCard{
+      border-radius: var(--r);
+      border:1px solid rgba(31,20,26,.10);
+      background: rgba(255,255,255,.82);
+      box-shadow: var(--shadow-soft);
+      overflow:hidden;
+    }
+    .menuTop{
+      display:flex; align-items:center; justify-content:space-between;
+      gap:10px; padding: 14px;
+      border-bottom: 1px solid rgba(31,20,26,.08);
+      background: linear-gradient(180deg, rgba(255,255,255,.92), rgba(255,255,255,.72));
+    }
+    .tabs{display:flex; gap:8px; flex-wrap:wrap}
+    .tab{
+      border:1px solid rgba(31,20,26,.10);
+      background: rgba(255,247,246,.70);
+      padding: 9px 11px;
+      border-radius: 999px;
+      font-weight: 900;
+      font-size: 12px;
+      cursor:pointer;
+      user-select:none;
+    }
+    .tab[aria-selected="true"]{
+      background: rgba(245,185,201,.62);
+      border-color: rgba(255,63,155,.22);
+    }
+    .search{flex:1; display:flex; justify-content:flex-end}
+    .search input{
+      width: min(340px, 100%);
+      border-radius: 999px;
+      border:1px solid rgba(31,20,26,.10);
+      padding: 10px 12px;
+      background: rgba(255,255,255,.94);
+      outline:none;
+      font-weight:700;
+    }
+    .panel{padding:14px; display:none}
+    .panel.active{display:block}
+
+    .menuGrid{
+      display:grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 12px;
+      align-items:start;
+    }
+    .group{
+      border-radius: 22px;
+      border: 1px solid rgba(31,20,26,.10);
+      background: rgba(255,255,255,.70);
+      padding: 12px;
+    }
+    .group.wide{grid-column: span 2;}
+    .group h3{
+      margin:0 0 8px;
+      font-family:"Libre Baskerville", serif;
+      font-size: 16px;
+      letter-spacing:.02em;
+    }
+    .item{
+      display:grid;
+      grid-template-columns: 1fr auto;
+      gap:10px;
+      padding: 8px 0;
+      border-top: 1px dashed rgba(31,20,26,.12);
+    }
+    .item:first-of-type{border-top:none}
+    .name{font-weight:900}
+    .desc{
+      grid-column:1 / -1;
+      color: rgba(31,20,26,.66);
+      font-size:12px;
+      margin-top:2px;
+      line-height:1.5;
+    }
+    .price{font-weight:900; white-space:nowrap; color: rgba(31,20,26,.82)}
+
+    /* Orders */
+    .orders{
+      border-radius: var(--r2);
+      border:1px solid rgba(31,20,26,.10);
+      background: rgba(255,255,255,.86);
+      box-shadow: var(--shadow-soft);
+      overflow:hidden;
+    }
+    .ordersTop{
+      padding: 18px 18px 0;
+      display:flex; align-items:flex-end; justify-content:space-between; gap:12px; flex-wrap:wrap;
+    }
+    .ordersTop h3{
+      margin:0;
+      font-family:"Playfair Display", serif;
+      font-size: 26px;
+    }
+    .ordersTop p{margin:0;color:rgba(31,20,26,.72);max-width:78ch}
+    .ordersGrid{
+      padding: 16px 18px 18px;
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+      align-items:start;
+    }
+    .steps{display:grid; gap:10px}
+    .step{
+      border-radius: 22px;
+      border: 1px solid rgba(31,20,26,.10);
+      background: rgba(255,255,255,.88);
+      padding: 12px;
+      box-shadow: 0 10px 24px rgba(20,10,16,.06);
+    }
+    .step strong{
+      display:inline-block;
+      font-weight: 900;
+      padding: 6px 10px;
+      border-radius: 999px;
+      background: rgba(245,185,201,.52);
+      border: 1px solid rgba(255,63,155,.18);
+      margin-bottom: 8px;
+    }
+    .step p{margin:0;color:rgba(31,20,26,.74);font-size:13px;line-height:1.55}
+    .ordersPics{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+    .pic{
+      border-radius: 26px;
+      border:1px solid rgba(31,20,26,.10);
+      background: rgba(255,255,255,.78);
+      box-shadow: 0 12px 36px rgba(20,10,16,.10);
+      overflow:hidden;
+      cursor: zoom-in;
+      min-height: 220px;
+    }
+    .pic img{width:100%; height:100%; object-fit:cover; display:block}
+
+    /* Photos */
+    .gallery{
+      display:grid;
+      grid-template-columns: 1.2fr .8fr;
+      gap: 14px;
+      align-items:start;
+    }
+    .bigPhoto{
+      border-radius: var(--r2);
+      border:1px solid rgba(31,20,26,.10);
+      box-shadow: var(--shadow);
+      overflow:hidden;
+      cursor:zoom-in;
+      background: rgba(255,255,255,.78);
+      min-height: 420px;
+    }
+    .bigPhoto img{width:100%;height:100%;object-fit:cover;display:block}
+    .thumbs{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+    .thumb{
+      border-radius: 26px;
+      border:1px solid rgba(31,20,26,.10);
+      box-shadow: var(--shadow-soft);
+      overflow:hidden;
+      cursor:zoom-in;
+      background: rgba(255,255,255,.78);
+      height: 200px;
+    }
+    .thumb img{width:100%;height:100%;object-fit:cover;display:block}
+
+    /* Infos + map */
+    .infoGrid{display:grid; grid-template-columns: 1fr 1fr; gap:14px; align-items:start}
+    .infoCard{
+      border-radius: var(--r);
+      border:1px solid rgba(31,20,26,.10);
+      background: rgba(255,255,255,.86);
+      box-shadow: var(--shadow-soft);
+      padding: 14px;
+    }
+    .infoCard h3{margin:0 0 10px;font-family:"Libre Baskerville", serif;font-size:16px}
+    .infoCard ul{margin:0;padding-left:18px;color:rgba(31,20,26,.74)}
+    .map{
+      border-radius: var(--r);
+      border:1px solid rgba(31,20,26,.10);
+      overflow:hidden;
+      box-shadow: var(--shadow-soft);
+      background: rgba(255,255,255,.78);
+      min-height: 280px;
+    }
+    iframe{border:0}
+
+    footer{
+      padding: 26px 0 38px;
+      border-top: 1px solid rgba(31,20,26,.10);
+      color: rgba(31,20,26,.70);
+      background: var(--sectionA);
+    }
+    .foot{display:flex; align-items:flex-start; justify-content:space-between; gap:12px; flex-wrap:wrap}
+
+    /* Lightbox */
+    .lightbox{
+      position:fixed; inset:0;
+      background: rgba(15,8,12,.78);
+      display:none;
+      align-items:center;
+      justify-content:center;
+      z-index: 999;
+      padding: 18px;
+    }
+    .lightbox.open{display:flex}
+    .lightbox .frame{
+      max-width: min(980px, 96vw);
+      max-height: 88vh;
+      border-radius: 26px;
+      overflow:hidden;
+      border: 1px solid rgba(255,255,255,.20);
+      box-shadow: 0 30px 90px rgba(0,0,0,.45);
+      background: rgba(255,255,255,.06);
+      position:relative;
+    }
+    .lightbox img{
+      width:100%; height:100%;
+      object-fit:contain;
+      display:block;
+      background: rgba(0,0,0,.18);
+    }
+    .lightbox button{
+      position:absolute; top:10px; right:10px;
+      border-radius: 999px;
+      border:1px solid rgba(255,255,255,.22);
+      background: rgba(255,255,255,.12);
+      color:#fff;
+      padding: 10px 12px;
+      font-weight: 900;
+      cursor:pointer;
+    }
+
+    @media (max-width: 980px){
+      nav.links{display:none}
+      .burger{display:grid}
+      .highlights{grid-template-columns:1fr 1fr}
+      .menuGrid{grid-template-columns:1fr 1fr}
+      .gallery{grid-template-columns:1fr}
+      .infoGrid{grid-template-columns:1fr}
+      .ordersGrid{grid-template-columns:1fr}
+      .heroInner{padding: 96px 0 28px}
+    }
+    @media (max-width: 520px){
+      .highlights{grid-template-columns:1fr}
+      .menuGrid{grid-template-columns:1fr}
+      .thumbs{grid-template-columns:1fr}
+    }
+  </style>
+</head>
+
+<body>
+  <a class="skip" href="#contenu">Aller au contenu</a>
+
+  <header class="topbar">
+    <div class="wrap">
+      <div class="nav">
+        <a class="brand" href="#top" aria-label="La Ville Rose — accueil">
+          <div class="mark" aria-hidden="true">
+            <!-- Simple original “capitole vibe” mark (not copying the real logo) -->
+            <svg width="34" height="34" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M8 26h48" stroke="rgba(31,20,26,.75)" stroke-width="2.2" stroke-linecap="round"/>
+              <path d="M16 26l16-10 16 10" stroke="rgba(31,20,26,.72)" stroke-width="2.2" stroke-linejoin="round"/>
+              <path d="M12 26v24m40-24v24" stroke="rgba(31,20,26,.55)" stroke-width="2" stroke-linecap="round"/>
+              <path d="M18 50V34m8 16V34m12 16V34m8 16V34" stroke="rgba(31,20,26,.45)" stroke-width="2" stroke-linecap="round"/>
+              <path d="M8 50h48" stroke="rgba(31,20,26,.75)" stroke-width="2.2" stroke-linecap="round"/>
+              <circle cx="32" cy="32" r="1.6" fill="rgba(255,63,155,.95)"/>
+            </svg>
+          </div>
+          <div>
+            <h1>LA VILLE ROSE <small>salon de thé • Toulouse</small></h1>
+          </div>
+        </a>
+
+        <nav class="links" aria-label="Navigation">
+          <a href="#esprit">L’esprit</a>
+          <a href="#menu">Menu</a>
+          <a href="#commandes">Commandes perso</a>
+          <a href="#photos">Photos</a>
+          <a href="#infos">Infos</a>
+          <a class="primary" href="https://www.instagram.com/lavillerosecafe?igsh=eWJucXYzczlubms3" target="_blank" rel="noreferrer">Instagram</a>
+        </nav>
+
+        <button class="burger" id="burger" aria-label="Ouvrir le menu"><span></span></button>
+      </div>
+    </div>
+
+    <div id="mobileNav" style="display:none;border-top:1px solid rgba(31,20,26,.10);">
+      <div class="wrap" style="padding: 12px 0 14px; display:flex; gap:10px; flex-wrap:wrap;">
+        <a class="btn" href="#esprit">L’esprit</a>
+        <a class="btn" href="#menu">Menu</a>
+        <a class="btn" href="#commandes">Commandes perso</a>
+        <a class="btn" href="#photos">Photos</a>
+        <a class="btn" href="#infos">Infos</a>
+        <a class="btn primary" href="https://www.instagram.com/lavillerosecafe?igsh=eWJucXYzczlubms3" target="_blank" rel="noreferrer"><span class="mini"></span> Instagram</a>
+      </div>
+    </div>
+  </header>
+
+  <div id="top" class="hero" role="banner" aria-label="Hero La Ville Rose">
+    <div class="wrap heroInner">
+      <div class="heroCard">
+        <div class="kicker"><span class="dot"></span> Toulouse • salon de thé</div>
+        <div class="neon">LA VILLE ROSE</div>
+        <div class="subtitle">Un salon de thé en rose, pour prendre le temps.</div>
+        <p class="lead">
+          Mur de roses + néon, affiches pastel pop derrière le comptoir.
+          Brunch, desserts gourmands, boissons réconfort — et une vraie vibe “tea house”.
+        </p>
+
+
+        <!-- Optional subtle shortcuts (not redundant big buttons) -->
+        <div class="subLinks" aria-label="Raccourcis">
+          <a href="#photos">Photos</a>
+          <a href="#commandes">Commandes</a>
+          <a href="https://www.instagram.com/lavillerosecafe?igsh=eWJucXYzczlubms3" target="_blank" rel="noreferrer">Instagram</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <main id="contenu">
+    <section id="esprit" class="sectionB">
+      <div class="wrap">
+        <div class="sectionHead">
+          <div>
+            <h2>L’esprit “La Ville Rose”</h2>
+            <p>Un lieu chaleureux et photogénique, pensé pour s’asseoir, discuter, goûter — et revenir.</p>
+          </div>
+        </div>
+
+        <div class="highlights" aria-label="Points forts">
+          <div class="hl"><b>🌸 Décor</b><span>Mur de roses + néon, détails vintage, pastel pop derrière le comptoir.</span></div>
+          <div class="hl"><b>🥞 Brunch</b><span>Salé gourmand (burrata, bagel saumon…) + douceur (pancakes, fruits…).</span></div>
+          <div class="hl"><b>🧋 Boissons</b><span>Milkshakes, smoothies, mocktails sans alcool, boissons “fait maison”.</span></div>
+          <div class="hl"><b>🎂 Sur commande</b><span>Number cake, bento cake, birthday cakes… style “story Insta”.</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="menu" class="sectionA">
+      <div class="wrap">
+        <div class="sectionHead">
+          <div>
+            <h2>Menu</h2>
+          </div>
+        </div>
+
+        <div class="menuWrap">
+          <div class="menuCard" aria-label="Menu">
+            <div class="menuTop">
+              <div class="tabs" role="tablist" aria-label="Catégories du menu">
+                <div class="tab" role="tab" tabindex="0" aria-selected="true" data-tab="brunch">Brunch & salé</div>
+                <div class="tab" role="tab" tabindex="-1" aria-selected="false" data-tab="boissons">Boissons</div>
+                <div class="tab" role="tab" tabindex="-1" aria-selected="false" data-tab="the">Thés</div>
+                <div class="tab" role="tab" tabindex="-1" aria-selected="false" data-tab="cafe">Café & infusions</div>
+              </div>
+              <div class="search">
+                <input id="menuSearch" type="search" placeholder="Rechercher (ex: burrata, oreo…)" aria-label="Rechercher dans le menu" />
+              </div>
+            </div>
+
+            <!-- BRUNCH -->
+            <div class="panel active" data-panel="brunch">
+              <div class="menuGrid">
+                <div class="group" data-group>
+                  <h3>Brunch</h3>
+                  <div class="item" data-item>
+                    <div class="name">Brunch — 25€</div>
+                    <div class="price">25€</div>
+                    <div class="desc">Jusqu’à 15h • Plat + boisson + dessert</div>
+                  </div>
+                </div>
+
+                <div class="group wide" data-group>
+                  <h3>Plats</h3>
+                  <div class="item" data-item><div><div class="name">Eggs muffins bacon</div><div class="desc">Œuf Bénédicte, bacon de dinde, cheddar, tomate, ciboulette.</div></div><div class="price">13€</div></div>
+                  <div class="item" data-item><div><div class="name">Avocado toast</div><div class="desc">Crème burrata, saumon fumé, avocado, œuf, tomates cerises.</div></div><div class="price">13€</div></div>
+                  <div class="item" data-item><div><div class="name">Wrap au poulet</div><div class="desc">Tortillas de blé, poulet crispy, salade, concombre, tomate.</div></div><div class="price">13,50€</div></div>
+                  <div class="item" data-item><div><div class="name">Focaccia — tomate mozza</div><div class="desc">Tomate, mozzarella, sauce pesto, basilic.</div></div><div class="price">12€</div></div>
+                  <div class="item" data-item><div><div class="name">Bruschetta petite burrata</div><div class="desc">Burrata 125g, olives, échalote, tomates cerises, huile de truffe, pain toasté.</div></div><div class="price">14€</div></div>
+                  <div class="item" data-item><div><div class="name">Bagel au saumon</div><div class="desc">Avocat, saumon fumé, oignon, sauce tartare, feta.</div></div><div class="price">13€</div></div>
+                  <div class="item" data-item><div><div class="name">Pinky burger</div><div class="desc">Poulet crispy, double cheddar, sauce cheddar, cornichon, tomate, oignon rouge.</div></div><div class="price">15€</div></div>
+                  <div class="item" data-item><div><div class="name">Burrata (300g)</div><div class="desc">Tomate, tomates cerises, pesto, basilic, vinaigre à la framboise.</div></div><div class="price">16€</div></div>
+                  <div class="item" data-item><div><div class="name">Bao bun</div><div class="desc">Salade, poulet crispy, graines de sésame, tomate, sauce taco épicée.</div></div><div class="price">13€</div></div>
+                </div>
+
+                <div class="group" data-group>
+                  <h3>À partager</h3>
+                  <div class="item" data-item><div class="name">Pancakes x8</div><div class="price">9€</div><div class="desc">Lotus / Nutella / sirop d’érable / miel</div></div>
+                  <div class="item" data-item><div class="name">Plateau de fruits</div><div class="price">10€</div></div>
+                </div>
+
+                <div class="group" data-group>
+                  <h3>Mocktails (sans alcool)</h3>
+                  <div class="item" data-item><div><div class="name">Mojito (fraise / passion)</div><div class="desc">Jus de pomme, sirop rhum, citron vert, menthe fraîche.</div></div><div class="price">8€</div></div>
+                  <div class="item" data-item><div><div class="name">Piña colada</div><div class="desc">Jus d’ananas, noix de coco, sirop rhum, jus de citron vert.</div></div><div class="price">8€</div></div>
+                  <div class="item" data-item><div><div class="name">Instagramable</div><div class="desc">Sirop violette, limonade, jus de citron vert, curaçao bleu.</div></div><div class="price">8€</div></div>
+                  <div class="item" data-item><div><div class="name">Sex on the beach</div><div class="desc">Jus d’orange, jus de cranberry, sirop de pêche, sirop de grenadine.</div></div><div class="price">8€</div></div>
+                  <div class="item" data-item><div><div class="name">Bora-bora</div><div class="desc">Jus d’ananas, fruit de la passion, jus de citron vert, sirop de grenadine.</div></div><div class="price">8€</div></div>
+                </div>
+              </div>
+            </div>
+
+            <!-- BOISSONS -->
+            <div class="panel" data-panel="boissons">
+              <div class="menuGrid">
+                <div class="group wide" data-group>
+                  <h3>Soft</h3>
+                  <div class="item" data-item><div class="name">Coca-Cola (33cl)</div><div class="price">4€</div></div>
+                  <div class="item" data-item><div class="name">Coca-Cola Cherry (33cl)</div><div class="price">4€</div></div>
+                  <div class="item" data-item><div class="name">Coca-Cola Zero (33cl)</div><div class="price">4€</div></div>
+                  <div class="item" data-item><div class="name">Coca-Cola Framboise (33cl)</div><div class="price">5€</div></div>
+                  <div class="item" data-item><div class="name">Sprite (25cl)</div><div class="price">4€</div></div>
+                  <div class="item" data-item><div class="name">Fanta (25cl)</div><div class="price">4€</div></div>
+                  <div class="item" data-item><div class="name">FuzeTea (25cl)</div><div class="price">4€</div></div>
+                  <div class="item" data-item><div class="name">Minute Maid Orange (25cl)</div><div class="price">4€</div></div>
+                  <div class="item" data-item><div class="name">Minute Maid Pomme (25cl)</div><div class="price">4€</div></div>
+                  <div class="item" data-item><div class="name">Minute Maid Ananas (25cl)</div><div class="price">4€</div></div>
+                  <div class="item" data-item><div class="name">Evian (33cl)</div><div class="price">4€</div></div>
+                  <div class="item" data-item><div class="name">Perrier (33cl)</div><div class="price">4€</div></div>
+                  <div class="item" data-item><div class="name">Supplément sirop</div><div class="price">1€</div></div>
+                </div>
+
+                <div class="group" data-group>
+                  <h3>Fait maison</h3>
+                  <div class="item" data-item><div class="name">Thé glacé (35cl)</div><div class="price">7€</div><div class="desc">Fraise / Framboise / Passion / Cerise / Ananas / Banane</div></div>
+                  <div class="item" data-item><div class="name">Jus d’orange pressé</div><div class="price">5,50€</div></div>
+                  <div class="item" data-item><div class="name">Citronnade</div><div class="price">5,50€</div></div>
+                </div>
+
+                <div class="group" data-group>
+                  <h3>Smoothies (44cl)</h3>
+                  <div class="item" data-item><div class="name">Fraise banane</div><div class="price">7€</div></div>
+                  <div class="item" data-item><div class="name">Pomme framboise • mangue myrtille</div><div class="price">7€</div></div>
+                  <div class="item" data-item><div class="name">Ananas coco</div><div class="price">7€</div></div>
+                  <div class="item" data-item><div class="name">Ananas mangue papaye</div><div class="price">7€</div></div>
+                  <div class="item" data-item><div class="name">Mangue carotte kiwi • banane goyave</div><div class="price">7€</div></div>
+                  <div class="item" data-item><div class="name">Banane chou • mangue citronnelle</div><div class="price">7€</div></div>
+                </div>
+
+                <div class="group" data-group>
+                  <h3>Milkshakes (44cl)</h3>
+                  <div class="item" data-item><div class="name">Avocado</div><div class="price">8€</div></div>
+                  <div class="item" data-item><div class="name">Nutella® • Kinder Bueno</div><div class="price">8€</div></div>
+                  <div class="item" data-item><div class="name">Oreo</div><div class="price">8€</div></div>
+                  <div class="item" data-item><div class="name">Lotus Biskoff</div><div class="price">8€</div></div>
+                  <div class="item" data-item><div class="name">Vanille</div><div class="price">8€</div></div>
+                </div>
+              </div>
+            </div>
+
+            <!-- THÉ -->
+            <div class="panel" data-panel="the">
+              <div class="menuGrid">
+                <div class="group wide" data-group>
+                  <h3>Thé du monde</h3>
+                  <div class="item" data-item><div class="name">Tous les thés</div><div class="price">5€</div><div class="desc">Tarif unique</div></div>
+                </div>
+                <div class="group" data-group>
+                  <h3>Conseil</h3>
+                  <div class="item" data-item><div class="name">Fruité / floral / épicé</div><div class="price">—</div><div class="desc">Dis-nous ton mood, on t’oriente.</div></div>
+                </div>
+              </div>
+            </div>
+
+            <!-- CAFÉ -->
+            <div class="panel" data-panel="cafe">
+              <div class="menuGrid">
+                <div class="group" data-group>
+                  <h3>Café</h3>
+                  <div class="item" data-item><div class="name">Ristretto</div><div class="price">2€</div></div>
+                  <div class="item" data-item><div class="name">Espresso</div><div class="price">2,50€</div></div>
+                  <div class="item" data-item><div class="name">Café Américain</div><div class="price">2,50€</div></div>
+                  <div class="item" data-item><div class="name">Noisette</div><div class="price">2,50€</div></div>
+                  <div class="item" data-item><div class="name">Café au lait</div><div class="price">3,50€</div></div>
+                  <div class="item" data-item><div class="name">Cappuccino</div><div class="price">4,50€</div></div>
+                  <div class="item" data-item><div class="name">Latte Macchiato</div><div class="price">4,50€</div><div class="desc">Espresso, lait chaud & mousse de lait.</div></div>
+                  <div class="item" data-item><div class="name">Café Viennois</div><div class="price">5€</div><div class="desc">Double chantilly + cacao.</div></div>
+                </div>
+
+                <div class="group" data-group>
+                  <h3>Infusions</h3>
+                  <div class="item" data-item><div class="name">Camomille</div><div class="price">—</div></div>
+                  <div class="item" data-item><div class="name">Rooibos (sélection)</div><div class="price">—</div></div>
+                </div>
+              </div>
+            </div>
+
+          </div><!-- /menuCard -->
+        </div><!-- /menuWrap -->
+      </div>
+    </section>
+
+    <section id="commandes" class="sectionB">
+      <div class="wrap">
+        <div class="sectionHead">
+          <div>
+            <h2>Commandes personnalisées</h2>
+          </div>
+        </div>
+
+        <div class="orders">
+          <div class="ordersTop">
+            <div>
+              <h3>Gâteaux sur mesure (Number • Bento • Birthday…)</h3>
+              <p>Contact idéalement <b>au moins une semaine avant</b>. Clique sur une image pour zoom.</p>
+            </div>
+            <a class="btn primary" href="https://www.instagram.com/lavillerosecafe?igsh=eWJucXYzczlubms3" target="_blank" rel="noreferrer"><span class="mini"></span> DM Instagram</a>
+          </div>
+
+          <div class="ordersGrid">
+            <div class="steps">
+              <div class="step"><strong>1. Contact</strong><p>Écris en DM avec la date souhaitée.</p></div>
+              <div class="step"><strong>2. Détails</strong><p>Nombre de parts / personnes + thème + message.</p></div>
+              <div class="step"><strong>3. Choix</strong><p>Parfums / finitions (fruits, chocolat…).</p></div>
+              <div class="step"><strong>4. Validation</strong><p>Validation + timing de retrait.</p></div>
+            </div>
+
+            <div class="ordersPics" aria-label="Exemples commandes personnalisées">
+              <div class="pic" data-zoom="./assets/cake-1.jpg" aria-label="Exemple number cake"><img alt="Exemple number cake" src="./assets/cake-1.jpg" /></div>
+              <div class="pic" data-zoom="./assets/cake-2.jpg" aria-label="Exemple bento cake"><img alt="Exemple bento cake" src="./assets/cake-2.jpg" /></div>
+              <div class="pic" data-zoom="./assets/cake-3.jpg" aria-label="Exemple donut birthday cake"><img alt="Exemple donut birthday cake" src="./assets/cake-3.jpg" /></div>
+              <div class="pic" data-zoom="./assets/cake-4.jpg" aria-label="Exemple choix de génoise"><img alt="Exemple choix de génoise" src="./assets/cake-4.jpg" /></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="photos" class="sectionA">
+      <div class="wrap">
+        <div class="sectionHead">
+          <div>
+            <h2>Photos</h2>
+            <p>Galerie insta</p>
+          </div>
+        </div>
+
+        <!-- Elfsight Instagram Feed | Untitled Instagram Feed -->
+<script src="https://elfsightcdn.com/platform.js" async></script>
+<div class="elfsight-app-31d9d0db-f635-4080-bbd9-9a145e0c754a" data-elfsight-app-lazy></div>
+      </div>
+    </section>
+
+    <section id="infos" class="sectionB">
+      <div class="wrap">
+        <div class="sectionHead">
+          <div>
+            <h2>Infos & accès</h2>
+            <p></p>
+          </div>
+        </div>
+
+        <div class="infoGrid">
+          <div class="infoCard">
+            <h3>Sur place</h3>
+            <ul>
+              <li>Salon de thé à Toulouse (secteur Gare Matabiau).</li>
+              <li>Brunch jusqu’à 15h (selon formule).</li>
+              <li>Thés du monde (tarif unique indiqué).</li>
+              <li>Commandes personnalisées : prévoir au moins 1 semaine.</li>
+            </ul>
+
+            <div style="margin-top:12px;display:flex;gap:10px;flex-wrap:wrap">
+              <a class="btn primary" href="https://www.google.com/maps/search/?api=1&query=La+Ville+Rose+salon+de+th%C3%A9+Toulouse" target="_blank" rel="noreferrer"><span class="mini"></span> Ouvrir dans Google Maps</a>
+              <a class="btn primary" href="https://www.instagram.com/lavillerosecafe?igsh=eWJucXYzczlubms3" target="_blank" rel="noreferrer"><span class="mini"></span> Instagram (horaires)</a>
+            </div>
+          </div>
+
+          <div class="map" aria-label="Carte Google Maps">
+            <iframe
+              title="Google Maps — La Ville Rose"
+              width="100%"
+              height="320"
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+              src="https://www.google.com/maps?q=La%20Ville%20Rose%20salon%20de%20th%C3%A9%20Toulouse&z=15&output=embed">
+            </iframe>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <div class="wrap">
+        <div class="foot">
+          <div>
+            <div style="display:flex;align-items:center;gap:10px;margin-bottom:8px">
+              <div class="mark" aria-hidden="true" style="width:38px;height:38px;border-radius:14px">
+                <svg width="30" height="30" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M8 26h48" stroke="rgba(31,20,26,.75)" stroke-width="2.2" stroke-linecap="round"/>
+                  <path d="M16 26l16-10 16 10" stroke="rgba(31,20,26,.72)" stroke-width="2.2" stroke-linejoin="round"/>
+                  <path d="M8 50h48" stroke="rgba(31,20,26,.75)" stroke-width="2.2" stroke-linecap="round"/>
+                  <circle cx="32" cy="32" r="1.6" fill="rgba(255,63,155,.95)"/>
+                </svg>
+              </div>
+              <b style="font-family:'Libre Baskerville',serif;letter-spacing:.06em;text-transform:uppercase">LA VILLE ROSE</b>
+            </div>
+            <div>Salon de thé à Toulouse — rose, fleuri, rétro, gourmand.</div>
+          </div>
+          <a class="btn primary" href="https://www.instagram.com/lavillerosecafe?igsh=eWJucXYzczlubms3" target="_blank" rel="noreferrer"><span class="mini"></span> Instagram</a>
+        </div>
+      </div>
+    </footer>
+  </main>
+
+  <!-- Lightbox -->
+  <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Agrandissement image">
+    <div class="frame">
+      <button type="button" id="lbClose" aria-label="Fermer">✕</button>
+      <img id="lbImg" alt="" src="" />
+    </div>
+  </div>
+
+  <script>
+    // Mobile nav
+    const burger = document.getElementById('burger');
+    const mobileNav = document.getElementById('mobileNav');
+    burger?.addEventListener('click', () => {
+      const open = mobileNav.style.display !== 'none';
+      mobileNav.style.display = open ? 'none' : 'block';
+      burger.setAttribute('aria-label', open ? 'Ouvrir le menu' : 'Fermer le menu');
+    });
+
+    // Smooth scroll
+    document.addEventListener('click', (e) => {
+      const a = e.target.closest('a[href^="#"]');
+      if(!a) return;
+      const id = a.getAttribute('href');
+      const el = document.querySelector(id);
+      if(!el) return;
+      e.preventDefault();
+      el.scrollIntoView({behavior:'smooth', block:'start'});
+      mobileNav.style.display = 'none';
+    });
+
+    // Tabs
+    const tabs = [...document.querySelectorAll('.tab')];
+    const panels = [...document.querySelectorAll('.panel')];
+
+    function setTab(key){
+      tabs.forEach(t => {
+        const active = t.dataset.tab === key;
+        t.setAttribute('aria-selected', active ? 'true' : 'false');
+        t.tabIndex = active ? 0 : -1;
+      });
+      panels.forEach(p => p.classList.toggle('active', p.dataset.panel === key));
+      const q = document.getElementById('menuSearch');
+      if(q) q.value = '';
+      filterMenu('');
+    }
+
+    tabs.forEach(t => {
+      t.addEventListener('click', () => setTab(t.dataset.tab));
+      t.addEventListener('keydown', (ev) => {
+        const idx = tabs.indexOf(t);
+        if(ev.key === 'ArrowRight'){ tabs[(idx+1)%tabs.length].focus(); }
+        if(ev.key === 'ArrowLeft'){ tabs[(idx-1+tabs.length)%tabs.length].focus(); }
+        if(ev.key === 'Enter' || ev.key === ' '){ ev.preventDefault(); setTab(t.dataset.tab); }
+      });
+    });
+
+    // Search
+    const search = document.getElementById('menuSearch');
+    const items = [...document.querySelectorAll('[data-item]')];
+    function norm(s){ return (s||'').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,''); }
+    function filterMenu(query){
+      const q = norm(query);
+      items.forEach(it => {
+        const text = norm(it.innerText);
+        const show = !q || text.includes(q);
+        it.style.display = show ? '' : 'none';
+      });
+      document.querySelectorAll('[data-group]').forEach(g => {
+        const any = [...g.querySelectorAll('[data-item]')].some(x => x.style.display !== 'none');
+        g.style.display = any ? '' : 'none';
+      });
+    }
+    search?.addEventListener('input', () => filterMenu(search.value));
+
+    // Lightbox
+    const lightbox = document.getElementById('lightbox');
+    const lbImg = document.getElementById('lbImg');
+    const lbClose = document.getElementById('lbClose');
+
+    function openLightbox(src, alt=''){
+      lbImg.src = src;
+      lbImg.alt = alt;
+      lightbox.classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+    function closeLightbox(){
+      lightbox.classList.remove('open');
+      lbImg.src = '';
+      document.body.style.overflow = '';
+    }
+
+    document.addEventListener('click', (e) => {
+      const zoom = e.target.closest('[data-zoom]');
+      if(zoom){
+        openLightbox(zoom.getAttribute('data-zoom'), zoom.getAttribute('aria-label') || 'Image');
+        return;
+      }
+    });
+    lightbox.addEventListener('click', (e) => { if(e.target === lightbox) closeLightbox(); });
+    lbClose.addEventListener('click', closeLightbox);
+    document.addEventListener('keydown', (e) => { if(e.key === 'Escape' && lightbox.classList.contains('open')) closeLightbox(); });
+  </script>
+
+  <!--
+    Put these images in ./assets/ :
+      hero-roses-neon.jpg
+      interior-posters.jpg
+      vintage-detail.jpg
+      menu-photo.jpg
+      front.jpg
+      cake-1.jpg cake-2.jpg cake-3.jpg cake-4.jpg
+  -->
+</body>
+</html>
