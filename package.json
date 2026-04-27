@@ -1,25 +1,24 @@
 {
-  "name": "ralphmartynward",
-  "version": "1.0.0",
-  "description": "- 👋 Hi, I’m Ralph Ward - 👀 I’m interested to work as a freelance for hybrid positions - 🌱 I’m currently working as a Data Analyst - 💞️ I’m looking to collaborate on open source projects  - 🙋‍♂️ Feel free to reach out through my e-mail or my LinkedIn",
-  "main": "index.js",
+  "name": "ralph-ward-v2",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "preview": "vite preview"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/ralphmartynward/ralphmartynward.git"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/ralphmartynward/ralphmartynward/issues"
-  },
-  "homepage": "https://github.com/ralphmartynward/ralphmartynward#readme",
   "dependencies": {
-    "@google-cloud/local-auth": "^2.1.0",
-    "googleapis": "^105.0.0",
-    "handlebars": "^4.7.7"
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  },
+  "devDependencies": {
+    "@tailwindcss/vite": "^4.1.0",
+    "@types/react": "^18.3.5",
+    "@types/react-dom": "^18.3.0",
+    "@vitejs/plugin-react": "^4.3.1",
+    "tailwindcss": "^4.1.0",
+    "typescript": "^5.5.3",
+    "vite": "^5.4.8"
   }
 }
