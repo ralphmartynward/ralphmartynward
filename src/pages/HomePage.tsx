@@ -59,14 +59,6 @@ function Hero() {
             {ch.title}
           </a>
         ))}
-        <span className="text-zinc-700">·</span>
-        <Link
-          to="/skills"
-          className="text-xs tracking-wide text-zinc-600 hover:text-zinc-300"
-          style={{ transitionProperty: 'color', transitionDuration: '150ms' }}
-        >
-          Explore skills
-        </Link>
       </div>
       <Link
         to="/skills"
@@ -154,24 +146,6 @@ export function HomePage() {
           )}
         </div>
 
-        {/* Back to explore link */}
-        <Link
-          to="/skills"
-          style={{
-            position: 'absolute',
-            bottom: 24,
-            right: 24,
-            zIndex: 10,
-            fontSize: 10,
-            color: '#3f3f46',
-            textDecoration: 'none',
-            letterSpacing: '0.05em',
-          }}
-          onMouseEnter={e => (e.currentTarget.style.color = '#71717a')}
-          onMouseLeave={e => (e.currentTarget.style.color = '#3f3f46')}
-        >
-          explore all skills &rarr;
-        </Link>
       </div>
 
       {/* ── Right panel: scrolling content ── */}
