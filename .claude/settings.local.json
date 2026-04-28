@@ -22,7 +22,8 @@
       "Bash(npx tsc *)",
       "Bash(mkdir -p public/assets/img)",
       "Bash(cp -r assets/img/portfolio public/assets/img/portfolio)",
-      "Bash(aura\")"
+      "Bash(aura\")",
+      "Bash(git commit *)"
     ]
   }
 }

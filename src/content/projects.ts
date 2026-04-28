@@ -112,7 +112,7 @@ export const CHAPTER_PROJECTS: Record<number, ProjectData[]> = {
     {
       id: 'ouaf',
       name: 'Ouaf!',
-      description: 'Humorous novelty book by AI - self-published via Amazon KDP.',
+      description: 'Novelty self-published book A/B testing FBA vs KDP unit economics.',
       year: '2024',
       url: 'https://www.amazon.fr/dp/2959459202',
       thumbnail: '/assets/img/portfolio/book.png',
