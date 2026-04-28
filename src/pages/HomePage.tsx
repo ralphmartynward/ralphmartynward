@@ -10,7 +10,33 @@ import { useActiveChapter } from '../hooks/useActiveChapter'
 
 function Hero() {
   return (
-    <section className="min-h-screen flex flex-col justify-center px-8 py-20">
+    <section className="min-h-screen flex flex-col justify-center px-8 py-20 relative">
+
+      {/* Meta line — top of hero for returning visitors */}
+      <div style={{
+        position: 'absolute', top: 24, left: 32, right: 32,
+        display: 'flex', gap: 20, fontSize: 10,
+        letterSpacing: '0.18em', textTransform: 'uppercase', color: '#52525b',
+      }}>
+        <span>Portfolio</span>
+        <span style={{ color: '#27272a' }}>·</span>
+        <span>Toulouse</span>
+        <span style={{ color: '#27272a' }}>·</span>
+        <a href="https://cutt.ly/FtLjVwg6" target="_blank" rel="noopener noreferrer"
+          style={{ color: 'inherit', textDecoration: 'none' }}
+          onMouseEnter={e => (e.currentTarget.style.color = '#a1a1aa')}
+          onMouseLeave={e => (e.currentTarget.style.color = '#52525b')}>
+          CV ↓
+        </a>
+        <span style={{ color: '#27272a' }}>·</span>
+        <a href="https://www.linkedin.com/in/ralphmartynward" target="_blank" rel="noopener noreferrer"
+          style={{ color: 'inherit', textDecoration: 'none' }}
+          onMouseEnter={e => (e.currentTarget.style.color = '#a1a1aa')}
+          onMouseLeave={e => (e.currentTarget.style.color = '#52525b')}>
+          LinkedIn ↑
+        </a>
+      </div>
+
       <p className="text-xs tracking-[0.3em] uppercase text-zinc-600 mb-8">Portfolio</p>
       <h1
         className="text-5xl font-bold text-white leading-tight mb-6"
@@ -44,7 +70,7 @@ function Hero() {
       </div>
       <Link
         to="/skills"
-        className="mt-8 inline-flex items-center gap-2 text-xs tracking-[0.12em] text-zinc-500 border border-zinc-800 rounded-full px-4 py-2 hover:text-zinc-300 hover:border-zinc-600"
+        className="hero-skills-cta mt-8 items-center gap-2 text-xs tracking-[0.12em] text-zinc-500 border border-zinc-800 rounded-full px-4 py-2 hover:text-zinc-300 hover:border-zinc-600"
         style={{ transitionProperty: 'color, border-color', transitionDuration: '150ms' }}
       >
         View skills network &rarr;
@@ -154,24 +180,45 @@ export function HomePage() {
         {chapters.map((chapter) => (
           <ChapterSection key={chapter.id} chapter={chapter} />
         ))}
-        <footer
-          style={{
-            padding: '64px 32px',
-            borderTop: '1px solid #27272a',
-          }}
-        >
-          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-            <p style={{ fontSize: 12, color: '#52525b' }}>
-              Ralph Ward &middot; v2.ralph-ward.com
-            </p>
-            <Link
-              to="/skills"
-              style={{ fontSize: 12, color: '#52525b', textDecoration: 'none' }}
-              onMouseEnter={e => (e.currentTarget.style.color = '#a1a1aa')}
-              onMouseLeave={e => (e.currentTarget.style.color = '#52525b')}
-            >
-              Skills network &rarr;
-            </Link>
+        <footer style={{ padding: '64px 32px', borderTop: '1px solid #27272a' }}>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: 14 }}>
+            <div style={{ display: 'flex', gap: 32, fontSize: 12 }}>
+              <span style={{ color: '#3f3f46', minWidth: 80 }}>contact</span>
+              <div style={{ display: 'flex', gap: 12, flexWrap: 'wrap', alignItems: 'center' }}>
+                <a href="mailto:ralphmartynward@gmail.com" style={{ color: '#71717a', textDecoration: 'none' }}
+                  onMouseEnter={e => (e.currentTarget.style.color = '#a1a1aa')}
+                  onMouseLeave={e => (e.currentTarget.style.color = '#71717a')}>
+                  ralphmartynward@gmail.com
+                </a>
+                <span style={{ color: '#3f3f46' }}>·</span>
+                <a href="https://www.linkedin.com/in/ralphmartynward" target="_blank" rel="noopener noreferrer"
+                  style={{ color: '#71717a', textDecoration: 'none' }}
+                  onMouseEnter={e => (e.currentTarget.style.color = '#a1a1aa')}
+                  onMouseLeave={e => (e.currentTarget.style.color = '#71717a')}>
+                  LinkedIn
+                </a>
+                <span style={{ color: '#3f3f46' }}>·</span>
+                <a href="https://github.com/ralphmartynward/" target="_blank" rel="noopener noreferrer"
+                  style={{ color: '#71717a', textDecoration: 'none' }}
+                  onMouseEnter={e => (e.currentTarget.style.color = '#a1a1aa')}
+                  onMouseLeave={e => (e.currentTarget.style.color = '#71717a')}>
+                  GitHub
+                </a>
+              </div>
+            </div>
+            <div style={{ display: 'flex', gap: 32, fontSize: 12 }}>
+              <span style={{ color: '#3f3f46', minWidth: 80 }}>download</span>
+              <a href="https://cutt.ly/FtLjVwg6" target="_blank" rel="noopener noreferrer"
+                style={{ color: '#71717a', textDecoration: 'none' }}
+                onMouseEnter={e => (e.currentTarget.style.color = '#a1a1aa')}
+                onMouseLeave={e => (e.currentTarget.style.color = '#71717a')}>
+                CV (PDF)
+              </a>
+            </div>
+            <div style={{ display: 'flex', gap: 32, fontSize: 12 }}>
+              <span style={{ color: '#3f3f46', minWidth: 80 }}>location</span>
+              <span style={{ color: '#71717a' }}>Toulouse, France</span>
+            </div>
           </div>
         </footer>
       </div>

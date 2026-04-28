@@ -51,6 +51,12 @@ body {
   }
 }
 
+/* ── Hero skills CTA — mobile only ── */
+.hero-skills-cta { display: none; }
+@media (max-width: 768px) {
+  .hero-skills-cta { display: inline-flex; }
+}
+
 /* ── Homepage: hide graph panel on mobile ── */
 @media (max-width: 768px) {
   .home-graph-panel { display: none; }
