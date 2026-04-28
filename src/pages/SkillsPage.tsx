@@ -40,8 +40,11 @@ export function SkillsPage() {
         <p className="text-xs tracking-[0.25em] uppercase text-zinc-600">
           Skills Network
         </p>
-        <p className="text-[10px] text-zinc-700 mt-0.5">
+        <p className="text-[10px] text-zinc-700 mt-0.5 skills-zoom-hint">
           40 skills &middot; 7 clusters &middot; hover to explore
+        </p>
+        <p className="text-[10px] text-zinc-700 mt-0.5 skills-tap-hint">
+          40 skills &middot; 7 clusters &middot; tap to explore
         </p>
       </div>
 
@@ -67,9 +70,9 @@ export function SkillsPage() {
         ))}
       </div>
 
-      {/* Info panel */}
+      {/* Info panel — desktop corner */}
       <div
-        className="fixed bottom-6 left-6 z-50 max-w-xs"
+        className="skills-info-corner fixed bottom-6 left-6 z-50 max-w-xs"
         style={{ opacity: infoNode || infoLabel ? 1 : 0, transition: 'opacity 150ms' }}
       >
         {infoNode && (
@@ -104,10 +107,42 @@ export function SkillsPage() {
         )}
       </div>
 
-      {/* Zoom hint */}
-      <p className="fixed bottom-6 right-6 z-50 text-[10px] text-zinc-700 pointer-events-none">
+      {/* Zoom hint — desktop */}
+      <p className="skills-zoom-hint fixed bottom-6 right-6 z-50 text-[10px] text-zinc-700 pointer-events-none">
         scroll to zoom &middot; drag to pan
       </p>
+
+      {/* Bottom-sheet tooltip — mobile tap */}
+      <div className={`skills-bottom-sheet${infoNode || infoLabel ? ' active' : ''}`}>
+        <div style={{ width: 32, height: 3, background: '#3f3f46', borderRadius: 2, margin: '0 auto 16px' }} />
+        {infoNode && (
+          <>
+            <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 6 }}>
+              <span style={{ width: 8, height: 8, borderRadius: '50%', background: infoNode.color, flexShrink: 0, display: 'block' }} />
+              <p style={{ fontSize: 11, color: '#71717a', textTransform: 'uppercase', letterSpacing: '0.12em' }}>
+                {CLUSTERS[infoNode.cluster].name}
+              </p>
+            </div>
+            <h3 style={{ fontSize: 17, fontWeight: 600, color: infoNode.color, marginBottom: 8 }}>
+              {infoNode.name}
+            </h3>
+            {infoNode.tools.length > 0 && (
+              <p style={{ fontSize: 12, color: '#a1a1aa', lineHeight: 1.65 }}>
+                {infoNode.tools.join(' · ')}
+              </p>
+            )}
+          </>
+        )}
+        {infoLabel && (
+          <p style={{ fontSize: 13, color: '#e4e4e7', lineHeight: 1.65 }}>{infoLabel}</p>
+        )}
+        <button
+          onClick={() => { setHoveredNode(null); setHoveredLink(null) }}
+          style={{ marginTop: 14, fontSize: 11, color: '#52525b', background: 'none', border: 'none', cursor: 'pointer', padding: 0 }}
+        >
+          dismiss
+        </button>
+      </div>
 
       {/* Graph */}
       <SkillsGraph

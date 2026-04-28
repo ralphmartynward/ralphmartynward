@@ -146,6 +146,9 @@ export function SkillsGraph({ chapter, onNodeHover, onLinkHover }: Props) {
   const hovLinkRef = useRef<GraphLink | null>(null)
   const isPanRef = useRef(false)
   const panOriginRef = useRef({ x: 0, y: 0 })
+  const pinchStartDistRef = useRef(0)
+  const pinchStartKRef = useRef(1)
+  const touchStartRef = useRef<{ x: number; y: number; time: number } | null>(null)
   const rafRef = useRef<number>()
   const [isDragging, setIsDragging] = useState(false)
 
@@ -540,6 +543,69 @@ export function SkillsGraph({ chapter, onNodeHover, onLinkHover }: Props) {
     setIsDragging(false)
   }, [])
 
+  const onTouchStart = useCallback((e: React.TouchEvent) => {
+    if (e.touches.length === 1) {
+      isPanRef.current = true
+      const t = e.touches[0]
+      panOriginRef.current = {
+        x: t.clientX - transformRef.current.tx,
+        y: t.clientY - transformRef.current.ty,
+      }
+      touchStartRef.current = { x: t.clientX, y: t.clientY, time: Date.now() }
+    } else if (e.touches.length === 2) {
+      isPanRef.current = false
+      const dx = e.touches[0].clientX - e.touches[1].clientX
+      const dy = e.touches[0].clientY - e.touches[1].clientY
+      pinchStartDistRef.current = Math.sqrt(dx * dx + dy * dy)
+      pinchStartKRef.current = transformRef.current.k
+    }
+  }, [])
+
+  const onTouchMove = useCallback((e: React.TouchEvent) => {
+    if (e.touches.length === 1 && isPanRef.current) {
+      const t = e.touches[0]
+      transformRef.current = {
+        ...transformRef.current,
+        tx: t.clientX - panOriginRef.current.x,
+        ty: t.clientY - panOriginRef.current.y,
+      }
+      if (touchStartRef.current) {
+        const dx = t.clientX - touchStartRef.current.x
+        const dy = t.clientY - touchStartRef.current.y
+        if (dx * dx + dy * dy > 25) touchStartRef.current = null
+      }
+    } else if (e.touches.length === 2) {
+      const dx = e.touches[0].clientX - e.touches[1].clientX
+      const dy = e.touches[0].clientY - e.touches[1].clientY
+      const dist = Math.sqrt(dx * dx + dy * dy)
+      const newK = Math.max(0.15, Math.min(10, pinchStartKRef.current * (dist / (pinchStartDistRef.current || 1))))
+      const rect = canvasRef.current!.getBoundingClientRect()
+      const mx = (e.touches[0].clientX + e.touches[1].clientX) / 2 - rect.left
+      const my = (e.touches[0].clientY + e.touches[1].clientY) / 2 - rect.top
+      const { tx, ty, k } = transformRef.current
+      transformRef.current = {
+        tx: mx - (mx - tx) * (newK / k),
+        ty: my - (my - ty) * (newK / k),
+        k: newK,
+      }
+    }
+  }, [])
+
+  const onTouchEnd = useCallback((e: React.TouchEvent) => {
+    isPanRef.current = false
+    if (touchStartRef.current && e.changedTouches.length > 0) {
+      const t = e.changedTouches[0]
+      if (Date.now() - touchStartRef.current.time < 300) {
+        const rect = canvasRef.current!.getBoundingClientRect()
+        const node = findNode(t.clientX - rect.left, t.clientY - rect.top)
+        hovNodeRef.current = node
+        onNodeHover?.(node)
+        if (node) { hovLinkRef.current = null; onLinkHover?.(null) }
+      }
+      touchStartRef.current = null
+    }
+  }, [onNodeHover, onLinkHover])
+
   return (
     <canvas
       ref={canvasRef}
@@ -548,12 +614,16 @@ export function SkillsGraph({ chapter, onNodeHover, onLinkHover }: Props) {
         width: '100%',
         height: '100%',
         cursor: isDragging ? 'grabbing' : 'grab',
+        touchAction: 'none',
       }}
       onWheel={onWheel}
       onMouseDown={onMouseDown}
       onMouseMove={onMouseMove}
       onMouseUp={onMouseUp}
       onMouseLeave={onMouseUp}
+      onTouchStart={onTouchStart}
+      onTouchMove={onTouchMove}
+      onTouchEnd={onTouchEnd}
     />
   )
 }

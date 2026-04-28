@@ -42,6 +42,13 @@ function Hero() {
           Explore skills
         </Link>
       </div>
+      <Link
+        to="/skills"
+        className="mt-8 inline-flex items-center gap-2 text-xs tracking-[0.12em] text-zinc-500 border border-zinc-800 rounded-full px-4 py-2 hover:text-zinc-300 hover:border-zinc-600"
+        style={{ transitionProperty: 'color, border-color', transitionDuration: '150ms' }}
+      >
+        View skills network &rarr;
+      </Link>
     </section>
   )
 }
@@ -54,8 +61,9 @@ export function HomePage() {
   return (
     <div style={{ display: 'flex', minHeight: '100vh', background: '#09090b' }}>
 
-      {/* ── Left panel: sticky graph ── */}
+      {/* ── Left panel: sticky graph (hidden on mobile) ── */}
       <div
+        className="home-graph-panel"
         style={{
           position: 'sticky',
           top: 0,
@@ -141,7 +149,7 @@ export function HomePage() {
       </div>
 
       {/* ── Right panel: scrolling content ── */}
-      <div style={{ flex: 1, minWidth: 0 }}>
+      <div className="home-content-panel" style={{ flex: 1, minWidth: 0 }}>
         <Hero />
         {chapters.map((chapter) => (
           <ChapterSection key={chapter.id} chapter={chapter} />

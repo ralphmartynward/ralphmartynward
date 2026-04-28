@@ -51,6 +51,46 @@ body {
   }
 }
 
+/* ── Homepage: hide graph panel on mobile ── */
+@media (max-width: 768px) {
+  .home-graph-panel { display: none; }
+  .home-content-panel { min-width: 100%; }
+}
+
+/* ── Skills page bottom-sheet (mobile tap tooltip) ── */
+.skills-info-corner { }
+
+.skills-bottom-sheet {
+  display: none;
+}
+
+.skills-zoom-hint  { }
+.skills-tap-hint   { display: none; }
+
+@media (max-width: 768px) {
+  .skills-info-corner { display: none; }
+  .skills-zoom-hint   { display: none; }
+  .skills-tap-hint    { display: block; }
+
+  .skills-bottom-sheet {
+    display: block;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: #18181b;
+    border-top: 1px solid #27272a;
+    border-radius: 16px 16px 0 0;
+    padding: 16px 24px 40px;
+    z-index: 100;
+    transform: translateY(calc(100% + 2px));
+    transition: transform 280ms ease;
+  }
+  .skills-bottom-sheet.active {
+    transform: translateY(0);
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
