@@ -22,7 +22,7 @@ function Hero() {
         <span style={{ color: '#27272a' }}>·</span>
         <span>Toulouse</span>
         <span style={{ color: '#27272a' }}>·</span>
-        <a href="https://cutt.ly/FtLjVwg6" target="_blank" rel="noopener noreferrer"
+        <a href="https://cutt.ly/atLkiHpm" target="_blank" rel="noopener noreferrer"
           style={{ color: 'inherit', textDecoration: 'none' }}
           onMouseEnter={e => (e.currentTarget.style.color = '#a1a1aa')}
           onMouseLeave={e => (e.currentTarget.style.color = '#52525b')}>
@@ -182,7 +182,7 @@ export function HomePage() {
             </div>
             <div style={{ display: 'flex', gap: 32, fontSize: 12 }}>
               <span style={{ color: '#3f3f46', minWidth: 80 }}>download</span>
-              <a href="https://cutt.ly/FtLjVwg6" target="_blank" rel="noopener noreferrer"
+              <a href="https://cutt.ly/atLkiHpm" target="_blank" rel="noopener noreferrer"
                 style={{ color: '#71717a', textDecoration: 'none' }}
                 onMouseEnter={e => (e.currentTarget.style.color = '#a1a1aa')}
                 onMouseLeave={e => (e.currentTarget.style.color = '#71717a')}>
