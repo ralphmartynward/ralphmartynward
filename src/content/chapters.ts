@@ -83,7 +83,7 @@ export const chapters: Chapter[] = [
     title: 'Impact',
     period: 'now',
     tagline: 'Same toolkit, redirected.',
-    accent: '#e07a5f',
+    accent: '#4ade80',
     paragraphs: [
       `There's a Japanese concept, <em>ikigai</em>. The intersection of what you're good at, what the world needs, what you love, and what sustains you. Twelve years of building, professionally and otherwise. A practice of teaching myself whatever the next problem demands. And finally, a clear answer to a question I used to leave for later: what is all of this <em>for</em>.`,
       `What I love is building clever systems. Automation, AI as a horizontal layer across everything, the flow state of solving real problems. Learning across domains, being useful in ways that actually matter. What I'm good at is systems thinking and translation, spotting inefficiencies, designing elegant solutions, bridging the technical and the human. What the world needs, in my reading of it, is technology that's human-centered rather than extractive. Tools that foster connection and dignity. Climate action that's pragmatic rather than performative. A counterweight to the burnout culture that nearly broke me, and that I now know how to recognise.`,

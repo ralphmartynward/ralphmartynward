@@ -1,4 +1,5 @@
 import type { Chapter } from '../content/chapters'
+import { ChapterProjects } from './ChapterProjects'
 
 interface Props {
   chapter: Chapter
@@ -8,14 +9,14 @@ export function ChapterSection({ chapter }: Props) {
   return (
     <section
       id={`ch-${chapter.id}`}
-      className="min-h-screen px-6 py-28 lg:py-36 lg:pl-24"
+      className="min-h-screen px-8 py-24"
     >
-      <div className="max-w-2xl mx-auto lg:mx-0 lg:ml-16 xl:ml-32">
+      <div className="max-w-xl">
 
         {/* Chapter marker */}
         <div className="relative mb-10">
           <span
-            className="absolute -top-6 -left-2 text-[10rem] lg:text-[14rem] font-bold leading-none select-none pointer-events-none"
+            className="absolute -top-6 -left-2 text-[8rem] font-bold leading-none select-none pointer-events-none"
             style={{
               fontFamily: "'Playfair Display', serif",
               color: chapter.accent,
@@ -75,7 +76,11 @@ export function ChapterSection({ chapter }: Props) {
           ))}
         </div>
 
+
       </div>
+
+      <ChapterProjects chapterId={chapter.id} accent={chapter.accent} />
+
     </section>
   )
 }

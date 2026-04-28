@@ -4,7 +4,25 @@
       "Bash(git submodule *)",
       "Bash(git rm *)",
       "Bash(git add *)",
-      "Bash(git commit -m ' *)"
+      "Bash(git commit -m ' *)",
+      "Bash(rm -rf node_modules package-lock.json)",
+      "Bash(npm install *)",
+      "Bash(npm run *)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\" http://localhost:5173/)",
+      "Bash(start *)",
+      "Bash(git push *)",
+      "Bash(gh run *)",
+      "Bash(curl -s \"https://api.github.com/repos/ralphmartynward/ralphmartynward/actions/runs?per_page=5\")",
+      "Bash(python3 -c ' *)",
+      "Bash(curl -s \"https://api.github.com/repos/ralphmartynward/ralphmartynward/actions/runs?per_page=3\")",
+      "Bash(node -e \"const d=require\\('fs'\\).readFileSync\\('/dev/stdin','utf8'\\); const j=JSON.parse\\(d\\); j.workflow_runs.forEach\\(r=>console.log\\(r.status, r.conclusion, r.name, r.created_at\\)\\)\")",
+      "PowerShell(Resolve-DnsName *)",
+      "Bash(curl -s -o /dev/null -w \"Server status: %{http_code}\" http://localhost:5173/)",
+      "Bash(npm uninstall *)",
+      "Bash(npx tsc *)",
+      "Bash(mkdir -p public/assets/img)",
+      "Bash(cp -r assets/img/portfolio public/assets/img/portfolio)",
+      "Bash(aura\")"
     ]
   }
 }

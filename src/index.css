@@ -11,6 +11,46 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
+.chapter-projects-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 148px));
+  gap: 10px;
+  padding-top: 28px;
+  padding-bottom: 36px;
+}
+
+.chapter-projects-grid::-webkit-scrollbar {
+  display: none;
+}
+
+.chapter-project-card {
+  min-width: 0;
+}
+
+.chapter-projects-fade {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .chapter-projects-grid {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x proximity;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    padding-right: 40px;
+  }
+
+  .chapter-project-card {
+    flex-shrink: 0;
+    width: min(160px, 72vw);
+  }
+
+  .chapter-projects-fade {
+    display: block;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
