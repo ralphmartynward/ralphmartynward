@@ -155,6 +155,15 @@ export function HomePage() {
           <ChapterSection key={chapter.id} chapter={chapter} />
         ))}
         <footer style={{ padding: '64px 32px', borderTop: '1px solid #27272a' }}>
+          <div style={{ display: 'flex', gap: 32, alignItems: 'flex-start' }}>
+            <img
+              src="/assets/img/profile.png"
+              alt="Ralph Ward"
+              style={{
+                width: 80, height: 80, borderRadius: '50%', objectFit: 'cover',
+                flexShrink: 0, filter: 'grayscale(40%) brightness(0.75)',
+              }}
+            />
           <div style={{ display: 'flex', flexDirection: 'column', gap: 14 }}>
             <div style={{ display: 'flex', gap: 32, fontSize: 12 }}>
               <span style={{ color: '#3f3f46', minWidth: 80 }}>contact</span>
@@ -193,6 +202,7 @@ export function HomePage() {
               <span style={{ color: '#3f3f46', minWidth: 80 }}>location</span>
               <span style={{ color: '#71717a' }}>Toulouse, France</span>
             </div>
+          </div>
           </div>
         </footer>
       </div>
