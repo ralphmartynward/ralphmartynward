@@ -613,10 +613,10 @@ export function SkillsGraph({ chapter, onNodeHover, onLinkHover }: Props) {
         display: 'block',
         width: '100%',
         height: '100%',
-        cursor: isDragging ? 'grabbing' : 'grab',
+        cursor: chapter !== undefined ? 'default' : isDragging ? 'grabbing' : 'grab',
         touchAction: 'none',
       }}
-      onWheel={onWheel}
+      onWheel={chapter === undefined ? onWheel : undefined}
       onMouseDown={onMouseDown}
       onMouseMove={onMouseMove}
       onMouseUp={onMouseUp}
