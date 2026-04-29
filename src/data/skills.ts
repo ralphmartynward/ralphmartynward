@@ -21,9 +21,9 @@ export const CLUSTERS: Record<ClusterId, { name: string; color: string }> = {
   ops:     { name: 'Operations',         color: '#94a3b8' },
   data:    { name: 'Data & AI',          color: '#60a5fa' },
   eng:     { name: 'Engineering',        color: '#a78bfa' },
-  biz:     { name: 'Business',           color: '#e07a5f' },
-  cross:   { name: 'Cross-cutting',      color: '#a8a29e' },
-  impact:  { name: 'Impact',             color: '#f8fafc' },
+  biz:     { name: 'Business',           color: '#d4915a' },
+  cross:   { name: 'Cross-cutting',      color: '#c2a882' },
+  impact:  { name: 'Impact',             color: '#4ade80' },
 }
 
 export const skillNodes: SkillNodeData[] = [
