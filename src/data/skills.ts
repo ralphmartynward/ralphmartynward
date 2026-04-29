@@ -205,4 +205,9 @@ export const skillLinks: SkillLinkData[] = [
   { source: 39, target: 11 },
   { source: 39, target: 7 },
   { source: 35, target: 36 },
+
+  // Patch: missing technical combinations (normal tier, no strong/label)
+  { source: 7,  target: 9  },  // Product Management ↔ UX Research        (first active Ch2)
+  { source: 12, target: 20 },  // ERP / WMS Integration ↔ SQL & Databases  (first active Ch3)
+  { source: 21, target: 18 },  // Python ↔ Data Analysis                   (first active Ch4)
 ]
