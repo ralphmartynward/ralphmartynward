@@ -55,11 +55,12 @@ export function ChapterSection({ chapter }: Props) {
 
         {/* Tagline */}
         <p
-          className="text-xl lg:text-2xl leading-relaxed mb-12"
+          className="text-2xl lg:text-3xl leading-snug mt-10 mb-14"
           style={{
             fontFamily: "'Playfair Display', serif",
             fontStyle: 'italic',
             color: chapter.accent,
+            opacity: 0.95,
           }}
         >
           {chapter.tagline}

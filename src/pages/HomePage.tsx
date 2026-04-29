@@ -16,7 +16,7 @@ function Hero() {
       <div style={{
         position: 'absolute', top: 24, left: 32, right: 32,
         display: 'flex', gap: 20, fontSize: 10,
-        letterSpacing: '0.18em', textTransform: 'uppercase', color: '#52525b',
+        letterSpacing: '0.18em', textTransform: 'uppercase', color: '#71717a',
       }}>
         <span>Portfolio</span>
         <span style={{ color: '#27272a' }}>·</span>
@@ -53,7 +53,7 @@ function Hero() {
           <a
             key={ch.id}
             href={`#ch-${ch.id}`}
-            className="text-xs tracking-wide text-zinc-600 hover:text-zinc-300"
+            className="text-xs tracking-wide text-zinc-400 hover:text-zinc-100"
             style={{ transitionProperty: 'color', transitionDuration: '150ms' }}
           >
             {ch.title}
