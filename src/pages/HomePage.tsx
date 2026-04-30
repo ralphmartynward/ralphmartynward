@@ -77,7 +77,7 @@ export function HomePage() {
   const [hoveredLink, setHoveredLink] = useState<GraphLink | null>(null)
 
   return (
-    <div style={{ display: 'flex', minHeight: '100vh', background: '#09090b' }}>
+    <div style={{ display: 'flex', minHeight: '100vh', background: '#0d0d0d' }}>
 
       {/* ── Left panel: sticky graph (hidden on mobile) ── */}
       <div
@@ -89,6 +89,7 @@ export function HomePage() {
           width: '58%',
           flexShrink: 0,
           overflow: 'hidden',
+          background: '#0a0a0a',
         }}
       >
         <SkillsGraph
@@ -149,7 +150,7 @@ export function HomePage() {
       </div>
 
       {/* ── Right panel: scrolling content ── */}
-      <div className="home-content-panel" style={{ flex: 1, minWidth: 0 }}>
+      <div className="home-content-panel" style={{ flex: 1, minWidth: 0, background: '#111111' }}>
         <Hero />
         {chapters.map((chapter) => (
           <ChapterSection key={chapter.id} chapter={chapter} />

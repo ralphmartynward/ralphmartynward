@@ -24,7 +24,7 @@ export function SkillsPage() {
   const infoLabel = !hoveredNode && hoveredLink?.label ? hoveredLink.label : null
 
   return (
-    <div className="w-screen h-screen overflow-hidden relative" style={{ background: '#09090b' }}>
+    <div className="w-screen h-screen overflow-hidden relative" style={{ background: '#0d0d0d' }}>
 
       {/* Back link */}
       <Link

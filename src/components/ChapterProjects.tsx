@@ -197,7 +197,7 @@ export function ChapterProjects({ chapterId, accent }: Props) {
           top: 32,
           bottom: 40,
           width: 64,
-          background: 'linear-gradient(to right, transparent, #09090b)',
+          background: 'linear-gradient(to right, transparent, #111111)',
           pointerEvents: 'none',
         }}
       />

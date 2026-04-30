@@ -10,7 +10,7 @@ function GraphFallback() {
   return (
     <div
       className="w-screen h-screen flex items-center justify-center"
-      style={{ background: '#09090b' }}
+      style={{ background: '#0d0d0d' }}
     >
       <p className="text-xs text-zinc-600 tracking-[0.3em] uppercase">Loading</p>
     </div>
